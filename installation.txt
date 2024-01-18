@@ -1,0 +1,15 @@
+npx create-react-app my-app --template redux
+npm install -D tailwindcss
+npx tailwindcss init      
+
+
+
+echo "# Ecommerce" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Ch-Praneeth1/Ecommerce.git
+git push -u origin main
+
+

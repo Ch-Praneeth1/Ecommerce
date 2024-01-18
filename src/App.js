@@ -1,13 +1,16 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import { HomePage } from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+
 
 function App() {
   return (
     <div className="App">
-      <Counter>
-        
-      </Counter>
+      {/* <HomePage></HomePage> */}
+      {/* <LoginPage></LoginPage> */}
+      <SignUpPage></SignUpPage>
     </div>
   );
 }
