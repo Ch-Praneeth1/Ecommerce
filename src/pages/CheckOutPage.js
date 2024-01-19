@@ -34,19 +34,38 @@ const products = [
   // More products...
 ]
 
+const addresses = [
+    {
+      name: 'Leslie Alexander',
+      street: 'xyz street',
+      pincode: 522100,
+      city: 'Delhi',
+      state: 'TS',
+      phoneno: 1234567890
+    },
+    {
+        name: 'Anu Radha',
+        street: 'pragathi nagar',
+        pincode: 522001,
+        city: 'Guntur',
+        state: 'Ap',
+        phoneno: 987652112
+      },
+  ]
+
 const CheckOutPage = () => {
     const [open, setOpen] = useState(true);
   return (
     // <div className=''>
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-5">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
 
 
             <div className='lg:col-span-3'>
                 <form className='bg-white px-4 pb-5'>
                 <div className="space-y-12">
-                    <div className="border-b border-gray-900/10 pb-12">
-                    <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+                    <div className="border-b border-gray-900/10 pb-12 py-5">
+                    <h2 className=" font-semibold leading-7 text-2xl text-gray-900">Personal Information</h2>
                     <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
 
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -174,12 +193,57 @@ const CheckOutPage = () => {
                         </div>
                     </div>
                     </div>
+                    <div className="mt-6 flex items-center justify-end gap-x-6">
+                    <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                    Reset
+                    </button>
+                    <button
+                    type="submit"
+                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                    Save Address
+                    </button>
+                </div>
 
                     <div className="border-b border-gray-900/10 pb-12">
-                    <h2 className="text-base font-semibold leading-7 text-gray-900">Notifications</h2>
+                    <h2 className="text-base font-semibold leading-7 text-gray-900">Addresses</h2>
                     <p className="mt-1 text-sm leading-6 text-gray-600">
-                        We'll always let you know about important changes, but you pick what else you want to hear about.
+                        Choose form the existing address.
                     </p>
+                    <ul role="list" className="divide-y divide-gray-100">
+      {addresses.map((address) => (
+        <li key={address.email} className="flex justify-between gap-x-6 py-5 px-5 border-solid border-2 border-gray-2 ">
+          <div className="flex min-w-0 gap-x-4 ">
+          <input
+                id="address"
+                name="address"
+                type="radio"
+                className="h-4 w-4  text-indigo-600 focus:ring-indigo-600"
+            />
+            <div className="min-w-0 flex-auto ">
+              <p className="text-sm font-semibold leading-6 text-gray-900">{address.name}</p>
+              <p className="mt-1 truncate text-xs leading-5 text-gray-500">{address.street}</p>
+              <p className="mt-1 truncate text-xs leading-5 text-gray-500">{address.phoneno}</p>
+            </div>
+          </div>
+          <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+            <p className="text-sm leading-6 text-gray-900">{address.city}</p>
+            {address.pincode ? (
+              <p className="mt-1 text-xs leading-5 text-gray-500">
+                {address.pincode}
+              </p>
+            ) : (
+              <div className="mt-1 flex items-center gap-x-1.5">
+                <div className="flex-none rounded-full bg-emerald-500/20 p-1">
+                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                </div>
+                <p className="text-xs leading-5 text-gray-500">Online</p>
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
 
                     <div className="mt-10 space-y-10">
                         
@@ -190,7 +254,7 @@ const CheckOutPage = () => {
                             <div className="flex items-center gap-x-3">
                             <input
                                 id="cash"
-                                name="cash"
+                                name="payments"
                                 type="radio"
                                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                             />
@@ -201,7 +265,7 @@ const CheckOutPage = () => {
                             <div className="flex items-center gap-x-3">
                             <input
                                 id="online-payment"
-                                name="online-payment"
+                                name="payments"
                                 type="radio"
                                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                             />
@@ -218,17 +282,7 @@ const CheckOutPage = () => {
                     </div>
                 </div>
 
-                <div className="mt-6 flex items-center justify-end gap-x-6">
-                    <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
-                    Cancel
-                    </button>
-                    <button
-                    type="submit"
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                    Save
-                    </button>
-                </div>
+                
                 </form>
             </div>
 
@@ -296,12 +350,12 @@ const CheckOutPage = () => {
             </div>
             <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
             <div className="mt-6">
-                <a
-                href="#"
+                <Link
+                to="/pay"
                 className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                 >
-                Checkout
-                </a>
+                Order Now
+                </Link>
             </div>
             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                 <p>
