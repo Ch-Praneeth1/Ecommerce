@@ -2,6 +2,8 @@ import React from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import logo from './logo.jpg'
+import { Link } from 'react-router-dom'
 
 const user = {
   name: 'Tom Cook',
@@ -37,7 +39,7 @@ export const Navbar = ({children}) => {
                     <div className="flex-shrink-0">
                       <img
                         className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                        src={logo}
                         alt="Your Company"
                       />
                     </div>
@@ -63,6 +65,7 @@ export const Navbar = ({children}) => {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
+                    <Link to="/cart">
                       <button
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -70,7 +73,8 @@ export const Navbar = ({children}) => {
                         <span className="absolute -inset-1.5" />
                         <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
                       </button>
-                        <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1  text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                      </Link>
+                        <span className="inline-flex items-center rounded-md ml-1 bg-gray-50 px-2 py-1  text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
                             1
                         </span>
 
@@ -154,6 +158,7 @@ export const Navbar = ({children}) => {
                       <div className="text-base font-medium leading-none text-white">{user.name}</div>
                       <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
                     </div>
+                    <Link to="/cart">
                     <button
                       type="button"
                       className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -161,6 +166,7 @@ export const Navbar = ({children}) => {
                       <span className="absolute -inset-1.5" />
                       <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
+                    </Link>
                     <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
                         1
                     </span>
