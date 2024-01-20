@@ -29,7 +29,7 @@ function classNames(...classes) {
 export const Navbar = ({children}) => {
   return (
     <>
-      <div className="min-h-full">
+      <div className="min-h-full ">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
             <>
