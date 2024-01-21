@@ -1,22 +1,32 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCount } from './counterAPI';
+import { createUser, checkUser } from './authAPI';
 
 const initialState = {
-  value: 0,
+  loggedInUser: null,
   status: 'idle',
+  error:null,
 };
 
-export const incrementAsync = createAsyncThunk(
-  'counter/fetchCount',
-  async (amount) => {
-    const response = await fetchCount(amount);
+export const createUserAsync = createAsyncThunk(
+  'auth/createUser',
+  async (userData) => {
+    const response = await createUser(userData);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
 );
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const checkUserAsync = createAsyncThunk(
+  'auth/checkUser',
+  async (loginInfo) => {
+    const response = await checkUser(loginInfo);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+export const authSlice = createSlice({
+  name: 'auth',
   initialState,
   reducers: {
     increment: (state) => {
@@ -26,19 +36,28 @@ export const counterSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(incrementAsync.pending, (state) => {
+      .addCase(createUserAsync.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(incrementAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
-        state.value += action.payload;
+      .addCase(createUserAsync.fulfilled, (state, action) => {
+        state.status = 'userCreated';
+        state.loggedInUser = action.payload;
+      })
+      .addCase(checkUserAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(checkUserAsync.fulfilled, (state, action) => {
+        state.status = 'userFound';
+        state.loggedInUser = action.payload;
+      })
+      .addCase(checkUserAsync.rejected, (state, action) => {
+        state.status = 'error';
+        state.error = action.error;
       });
   },
 });
 
-export const { increment } = counterSlice.actions;
 
+export const selectLoggedInUser = (state) => state.auth.loggedInUser
 
-export const selectCount = (state) => state.counter.value;
-
-export default counterSlice.reducer;
+export default authSlice.reducer;

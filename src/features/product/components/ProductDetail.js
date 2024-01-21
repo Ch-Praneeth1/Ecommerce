@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { fetchProductByIdAsync,selectProductById } from '../productSlice';
 
 
-  // TODO: add color, size, highlights to our original data to each product
+// TODO: add color, size, highlights to our original data to each product
 const colors =  [
   { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
   { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
