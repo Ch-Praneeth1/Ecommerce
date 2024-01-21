@@ -2434,24 +2434,83 @@
   ],
   "users": [
     {
-      "id": "a76a",
+      "id": "1",
       "email": "chpraneethvardhanreddy143@gmail.com",
       "password": "Chaganti@143"
     },
     {
-      "id": "4b9f",
+      "id": "2",
       "email": "2100080199ai.ds@gmail.com",
       "password": "Gadde@123"
     },
     {
-      "id": "79b2",
-      "email": "2100080199ai.ds@gmail.com",
-      "password": "Gadde@123"
-    },
-    {
-      "id": "376f",
+      "id": "3",
       "email": "2100030659cse.h@gmail.com",
       "password": "Phani@123"
+    }
+  ],
+  "cart": [
+    {
+      "id": "98",
+      "title": "3 lights lndenpant kitchen islang",
+      "description": "3 lights lndenpant kitchen islang dining room pendant rice paper chandelier contemporary led pendant light modern chandelier",
+      "price": 34,
+      "discountPercentage": 5.92,
+      "rating": 4.99,
+      "stock": 44,
+      "brand": "DADAWU",
+      "category": "lighting",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/98/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/98/1.jpg",
+        "https://cdn.dummyjson.com/product-images/98/2.jpg",
+        "https://cdn.dummyjson.com/product-images/98/3.jpg",
+        "https://cdn.dummyjson.com/product-images/98/4.jpg",
+        "https://cdn.dummyjson.com/product-images/98/thumbnail.jpg"
+      ],
+      "quantity": 2,
+      "user": "3"
+    },
+    {
+      "id": "14",
+      "title": "Non-Alcoholic Concentrated Perfume Oil",
+      "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+      "price": 120,
+      "discountPercentage": 15.6,
+      "rating": 4.21,
+      "stock": 114,
+      "brand": "Al Munakh",
+      "category": "fragrances",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/14/1.jpg",
+        "https://cdn.dummyjson.com/product-images/14/2.jpg",
+        "https://cdn.dummyjson.com/product-images/14/3.jpg",
+        "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": "1"
+    },
+    {
+      "id": "29",
+      "title": "Handcraft Chinese style",
+      "description": "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
+      "price": 60,
+      "discountPercentage": 15.34,
+      "rating": 4.44,
+      "stock": 7,
+      "brand": "luxury palace",
+      "category": "home-decoration",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/29/thumbnail.webp",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/29/1.jpg",
+        "https://cdn.dummyjson.com/product-images/29/2.jpg",
+        "https://cdn.dummyjson.com/product-images/29/3.webp",
+        "https://cdn.dummyjson.com/product-images/29/4.webp",
+        "https://cdn.dummyjson.com/product-images/29/thumbnail.webp"
+      ],
+      "quantity": 1,
+      "user": "1"
     }
   ]
 }
