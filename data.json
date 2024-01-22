@@ -2437,30 +2437,50 @@
       "id": "1",
       "email": "chpraneethvardhanreddy143@gmail.com",
       "password": "Chaganti@143",
-      "address": []
+      "addresses": []
     },
     {
       "id": "2",
       "email": "2100080199ai.ds@gmail.com",
       "password": "Gadde@123",
-      "address": []
+      "addresses": []
     },
     {
       "id": "3",
       "email": "2100030659cse.h@gmail.com",
       "password": "Phani@123",
-      "address": []
+      "addresses": []
     },
     {
       "id": "95d1",
       "email": "praneethvardhanreddy143@gmail.com",
-      "password": "Pvr@1234"
+      "password": "Pvr@1234",
+      "addresses": []
     },
     {
       "id": "f84a",
       "email": "pavan143@gmail.com",
       "password": "Pavan@123",
-      "address": []
+      "addresses": [
+        {
+          "name": "pavan ",
+          "email": "pavan143@gmail.com",
+          "phone": "7981127533",
+          "street": "Apollo  vari veedhi ",
+          "city": "AA puram ",
+          "state": "AP ",
+          "pincode": "123456"
+        },
+        {
+          "name": "Shree valli ",
+          "email": "pavan143@gmail.com",
+          "phone": "0987653232",
+          "street": "the street of lights",
+          "city": "ABCD",
+          "state": "XYZ",
+          "pincode": "098777"
+        }
+      ]
     }
   ],
   "cart": [
@@ -2525,26 +2545,6 @@
       ],
       "quantity": 1,
       "user": "95d1"
-    },
-    {
-      "id": "7",
-      "title": "Samsung Galaxy Book",
-      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-      "price": 1499,
-      "discountPercentage": 4.15,
-      "rating": 4.25,
-      "stock": 50,
-      "brand": "Samsung",
-      "category": "laptops",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/7/1.jpg",
-        "https://cdn.dummyjson.com/product-images/7/2.jpg",
-        "https://cdn.dummyjson.com/product-images/7/3.jpg",
-        "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": "f84a"
     },
     {
       "id": "26",
