@@ -43,3 +43,15 @@ export function deleteItemFromCart(itemid) {
     resolve({data:{id:itemid}})
   }); 
 }
+
+
+export async function clearCart(userId) {
+  return new Promise(async (resolve) => {
+    const cartItems = await fetchItemsByUserId(userId)
+    const Items = cartItems.data
+    for(const item of Items){
+      await deleteItemFromCart(item.id)
+    }
+    resolve({message: "Cart cleared "})
+  }); 
+}

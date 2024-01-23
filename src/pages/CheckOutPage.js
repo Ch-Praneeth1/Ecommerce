@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { deleteItemFromCartAsync, selectAllCartItems, updateCartAsync } from '../features/cart/cartSlice';
+import { Link, Navigate } from 'react-router-dom';
+import { clearCartAsync, deleteItemFromCartAsync, selectAllCartItems, updateCartAsync } from '../features/cart/cartSlice';
 // import {
 //   increment,
 //   incrementAsync,
@@ -12,6 +12,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useForm } from 'react-hook-form';
 import { selectLoggedInUser, updateUserAsync } from '../features/auth/authSlice';
+import { createOrderAsync, selectCurrentPlacedOrder } from '../features/order/orderSlice';
 
 
 
@@ -25,7 +26,8 @@ const CheckOutPage = () => {
     const user = useSelector(selectLoggedInUser)
     const [paymentMethod, setPaymentMethod] = useState("cash")
     const [selectedAddress, setSelectedAddress] = useState(null)
-  
+    const currentOrder = useSelector(selectCurrentPlacedOrder)
+    
     const handleQuantity = (e,item) => {
       dispatch(updateCartAsync({...item,quantity: +e.target.value}))
     };
@@ -43,12 +45,29 @@ const CheckOutPage = () => {
       setPaymentMethod(e.target.value)
     }
 
-    const handleOrder = () => {
+    const handleOrder = (e) => {
+      if(paymentMethod && selectedAddress){
+        const order = {items,totalAmount,totalItems,paymentMethod, selectedAddress, user }
+        dispatch(createOrderAsync(order));
+        
+        // need to redircet into order-success page   --> DONE 
+      }
+      else{
+        alert("select your delivery address")
+        //TODO: need an proper messaging popup
+      }
+      // redirect to order-success page --> DONE 
 
+      dispatch(clearCartAsync(user.id))
+      //TODO: clear cart after order
+      //TODO: on server chnage the stock number of items
     }
     
   return (
     // <div className=''>
+
+    <>
+    {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
             <div className='lg:col-span-3 pt-12'>
@@ -358,8 +377,8 @@ const CheckOutPage = () => {
           </div>
           
           <div className="mt-6">
-            <div className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-            onClick={handleOrder()}
+            <div className="flex items-center cursor-pointer justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+            onClick={e=>handleOrder(e)}
             >
               Order Now
             </div>
@@ -384,6 +403,7 @@ const CheckOutPage = () => {
             </div>
         </div>
     </div>
+    </>
   )
 }
 
