@@ -2465,7 +2465,17 @@
       "id": "95d1",
       "email": "praneethvardhanreddy143@gmail.com",
       "password": "Pvr@1234",
-      "addresses": []
+      "addresses": [
+        {
+          "name": "Praneeth reddy ",
+          "email": "praneethvardhanreddy143@gmail.com",
+          "phone": "7981127533",
+          "street": "wertyui dfghjk fg jk,",
+          "city": "Vijayawada ",
+          "state": "AP ",
+          "pincode": "098766"
+        }
+      ]
     },
     {
       "id": "f84a",
@@ -2493,71 +2503,7 @@
       ]
     }
   ],
-  "cart": [
-    {
-      "id": "4",
-      "title": "OPPOF19",
-      "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
-      "discountPercentage": 17.91,
-      "rating": 4.3,
-      "stock": 123,
-      "brand": "OPPO",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/4/1.jpg",
-        "https://cdn.dummyjson.com/product-images/4/2.jpg",
-        "https://cdn.dummyjson.com/product-images/4/3.jpg",
-        "https://cdn.dummyjson.com/product-images/4/4.jpg",
-        "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": "2"
-    },
-    {
-      "id": "14",
-      "title": "Non-Alcoholic Concentrated Perfume Oil",
-      "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
-      "price": 120,
-      "discountPercentage": 15.6,
-      "rating": 4.21,
-      "stock": 114,
-      "brand": "Al Munakh",
-      "category": "fragrances",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/14/1.jpg",
-        "https://cdn.dummyjson.com/product-images/14/2.jpg",
-        "https://cdn.dummyjson.com/product-images/14/3.jpg",
-        "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": "95d1"
-    },
-    {
-      "id": "26",
-      "title": "Plant Hanger For Home",
-      "description": "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
-      "price": 41,
-      "discountPercentage": 17.86,
-      "rating": 4.08,
-      "stock": 131,
-      "brand": "Boho Decor",
-      "category": "home-decoration",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/26/1.jpg",
-        "https://cdn.dummyjson.com/product-images/26/2.jpg",
-        "https://cdn.dummyjson.com/product-images/26/3.jpg",
-        "https://cdn.dummyjson.com/product-images/26/4.jpg",
-        "https://cdn.dummyjson.com/product-images/26/5.jpg",
-        "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": "95d1"
-    }
-  ],
+  "cart": [],
   "orders": [
     {
       "id": "a29e",
