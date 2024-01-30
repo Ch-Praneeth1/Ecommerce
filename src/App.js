@@ -20,6 +20,7 @@ import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import PageNotFoundPage from './pages/PageNotFoundPage';
 import OrderSuccesspage from './pages/OrderSuccesspage';
 import Order from './features/order/Order';
+import OrderDetailsPage from './pages/OrderDetailsPage';
 
 const router = createBrowserRouter([
   {
@@ -76,9 +77,7 @@ const router = createBrowserRouter([
   {
     path: "/order-details",
     element:(
-      <Protected>
-        <Order></Order>
-      </Protected>
+      <OrderDetailsPage></OrderDetailsPage>
     )
   },
   {
