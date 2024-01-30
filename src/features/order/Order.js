@@ -9,7 +9,7 @@ export default function Order() {
   const user = useSelector(selectLoggedInUser)
   const dispatch = useDispatch()
   const orders = useSelector(selectAllOrdersByUserId)
-  console.log(orders[0].items)
+  console.log(orders)
   useEffect(() => {
     dispatch(fetchAllOrderByUserIdAsync(user.id))
   },[dispatch,user])
@@ -22,13 +22,16 @@ export default function Order() {
         <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
           <div className="flow-root">
             <ul role="list" className="-my-6 divide-y divide-gray-200">
-              {orders[0].items.map((order,index) => (
+              {orders.map((order,index) => (
+                <>
+                {order.items.map((item,innerIndex) => (
+                  
               
               <li key={index} className="flex py-6">
               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                 <img
-                  src={order.thumbnail}
-                  alt={order.title}
+                  src={item.thumbnail}
+                  alt={item.title}
                   className="h-full w-full object-cover object-center"
                 />
               </div>
@@ -37,21 +40,24 @@ export default function Order() {
                 <div>
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <h3>
-                      <a href={order.thumbnail}>{order.title}</a>
+                      <a href={item.thumbnail}>{item.title}</a>
                     </h3>
                     <div className="block">
-                    <p className="ml-4">No of items-{order.quantity}</p>
-                    <p className="ml-4 align-bottom"><StarIcon className='h-6 w-6 inline'></StarIcon>{order.rating}</p>
+                    <p className="ml-4">No of items-{item.quantity}</p>
+                    <p className="ml-4 align-bottom"><StarIcon className='h-6 w-6 inline'></StarIcon>{order.items.rating}</p>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm text-gray-500">{order.brand}</p>
+                  <p className="mt-1 text-sm text-gray-500">{item.brand}</p>
                 </div>
                 <div className="flex flex-1 items-end justify-between text-sm">
-                <p className="mt-1 text-sm text-gray-500">{order.description}</p>
+                <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                 </div>
               </div>
             </li>
-          ))}
+          
+                ))}
+                </>
+              ))}
         </ul>
       </div>
     </div>

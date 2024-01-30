@@ -8,8 +8,6 @@ import { clearCartAsync, deleteItemFromCartAsync, selectAllCartItems, updateCart
 //   selectCount,
 // } from './cartSlice';
 
-import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useForm } from 'react-hook-form';
 import { selectLoggedInUser, updateUserAsync } from '../features/auth/authSlice';
 import { createOrderAsync, selectCurrentPlacedOrder } from '../features/order/orderSlice';
@@ -27,6 +25,7 @@ const CheckOutPage = () => {
     const [paymentMethod, setPaymentMethod] = useState("cash")
     const [selectedAddress, setSelectedAddress] = useState(null)
     const currentOrder = useSelector(selectCurrentPlacedOrder)
+    const deliveryStatus = "pending"
     
     const handleQuantity = (e,item) => {
       dispatch(updateCartAsync({...item,quantity: +e.target.value}))
@@ -47,7 +46,7 @@ const CheckOutPage = () => {
 
     const handleOrder = (e) => {
       if(paymentMethod && selectedAddress){
-        const order = {items,totalAmount,totalItems,paymentMethod, selectedAddress, user }
+        const order = {items,totalAmount,totalItems,paymentMethod, selectedAddress, user, deliveryStatus  }
         dispatch(createOrderAsync(order));
         
         // need to redircet into order-success page   --> DONE 
@@ -60,14 +59,14 @@ const CheckOutPage = () => {
 
       dispatch(clearCartAsync(user.id))
       //TODO: clear cart after order
-      //TODO: on server chnage the stock number of items
+      //TODO: on server change the stock number of items
     }
     
   return (
     // <div className=''>
 
     <>
-    {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
+    {items.length===0 && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
             <div className='lg:col-span-3 pt-12'>

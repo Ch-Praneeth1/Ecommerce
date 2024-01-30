@@ -2506,28 +2506,72 @@
   "cart": [],
   "orders": [
     {
-      "id": "c7c3",
+      "id": "5ac1",
       "items": [
         {
-          "id": "6",
-          "title": "MacBook Pro",
-          "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-          "price": 1749,
-          "discountPercentage": 11.02,
-          "rating": 4.57,
-          "stock": 83,
-          "brand": "Apple",
-          "category": "laptops",
-          "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
+          "id": "4",
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 280,
+          "discountPercentage": 17.91,
+          "rating": 4.3,
+          "stock": 123,
+          "brand": "OPPO",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
           "images": [
-            "https://cdn.dummyjson.com/product-images/6/1.png",
-            "https://cdn.dummyjson.com/product-images/6/2.jpg",
-            "https://cdn.dummyjson.com/product-images/6/3.png",
-            "https://cdn.dummyjson.com/product-images/6/4.jpg"
+            "https://cdn.dummyjson.com/product-images/4/1.jpg",
+            "https://cdn.dummyjson.com/product-images/4/2.jpg",
+            "https://cdn.dummyjson.com/product-images/4/3.jpg",
+            "https://cdn.dummyjson.com/product-images/4/4.jpg",
+            "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
           ],
-          "quantity": 2,
-          "user": "1"
-        },
+          "quantity": 1,
+          "user": "f84a"
+        }
+      ],
+      "totalAmount": 280,
+      "totalItems": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Shree valli ",
+        "email": "pavan143@gmail.com",
+        "phone": "0987653232",
+        "street": "the street of lights",
+        "city": "ABCD",
+        "state": "XYZ",
+        "pincode": "098777"
+      },
+      "user": {
+        "id": "f84a",
+        "email": "pavan143@gmail.com",
+        "password": "Pavan@123",
+        "addresses": [
+          {
+            "name": "pavan ",
+            "email": "pavan143@gmail.com",
+            "phone": "7981127533",
+            "street": "Apollo  vari veedhi ",
+            "city": "AA puram ",
+            "state": "AP ",
+            "pincode": "123456"
+          },
+          {
+            "name": "Shree valli ",
+            "email": "pavan143@gmail.com",
+            "phone": "0987653232",
+            "street": "the street of lights",
+            "city": "ABCD",
+            "state": "XYZ",
+            "pincode": "098777"
+          }
+        ]
+      },
+      "deliveryStatus": "pending"
+    },
+    {
+      "id": "a855",
+      "items": [
         {
           "id": "26",
           "title": "Plant Hanger For Home",
@@ -2548,107 +2592,11 @@
             "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg"
           ],
           "quantity": 1,
-          "user": "1"
-        }
-      ],
-      "totalAmount": 3539,
-      "totalItems": 3,
-      "paymentMethod": "card",
-      "selectedAddress": {
-        "name": "Ch Praneeth Vardhan Reddy ",
-        "email": "chpraneethvardhanreddy143@gmail.com",
-        "phone": "7981127533",
-        "street": "flat no: 201, jai shree rama heights, pragathi nagar",
-        "city": "Guntur",
-        "state": "AP ",
-        "pincode": "522002"
-      },
-      "user": {
-        "id": "1",
-        "email": "chpraneethvardhanreddy143@gmail.com",
-        "password": "Chaganti@143",
-        "addresses": [
-          {
-            "name": "Ch Praneeth Vardhan Reddy ",
-            "email": "chpraneethvardhanreddy143@gmail.com",
-            "phone": "7981127533",
-            "street": "flat no: 201, jai shree rama heights, pragathi nagar",
-            "city": "Guntur",
-            "state": "AP ",
-            "pincode": "522002"
-          }
-        ]
-      }
-    },
-    {
-      "id": "23ac",
-      "items": [
-        {
-          "id": "82",
-          "title": "Kabir Singh Square Sunglass",
-          "description": "Orignal Metal Kabir Singh design 2020 Sunglasses Men Brand Designer Sun Glasses Kabir Singh Square Sunglass",
-          "price": 50,
-          "discountPercentage": 15.6,
-          "rating": 4.62,
-          "stock": 78,
-          "brand": "Designer Sun Glasses",
-          "category": "sunglasses",
-          "thumbnail": "https://cdn.dummyjson.com/product-images/82/thumbnail.jpg",
-          "images": [
-            "https://cdn.dummyjson.com/product-images/82/1.jpg",
-            "https://cdn.dummyjson.com/product-images/82/2.webp",
-            "https://cdn.dummyjson.com/product-images/82/3.jpg",
-            "https://cdn.dummyjson.com/product-images/82/4.jpg",
-            "https://cdn.dummyjson.com/product-images/82/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": "f84a"
-        },
-        {
-          "id": "97",
-          "title": "Metal Ceramic Flower",
-          "description": "Metal Ceramic Flower Chandelier Home Lighting American Vintage Hanging Lighting Pendant Lamp",
-          "price": 35,
-          "discountPercentage": 10.94,
-          "rating": 4.93,
-          "stock": 146,
-          "brand": "Ifei Home",
-          "category": "lighting",
-          "thumbnail": "https://cdn.dummyjson.com/product-images/97/thumbnail.jpg",
-          "images": [
-            "https://cdn.dummyjson.com/product-images/97/1.jpg",
-            "https://cdn.dummyjson.com/product-images/97/2.jpg",
-            "https://cdn.dummyjson.com/product-images/97/3.jpg",
-            "https://cdn.dummyjson.com/product-images/97/4.webp",
-            "https://cdn.dummyjson.com/product-images/97/thumbnail.jpg"
-          ],
-          "quantity": 3,
-          "user": "f84a"
-        },
-        {
-          "id": "99",
-          "title": "American Vintage Wood Pendant Light",
-          "description": "American Vintage Wood Pendant Light Farmhouse Antique Hanging Lamp Lampara Colgante",
-          "price": 46,
-          "discountPercentage": 8.84,
-          "rating": 4.32,
-          "stock": 138,
-          "brand": "Ifei Home",
-          "category": "lighting",
-          "thumbnail": "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg",
-          "images": [
-            "https://cdn.dummyjson.com/product-images/99/1.jpg",
-            "https://cdn.dummyjson.com/product-images/99/2.jpg",
-            "https://cdn.dummyjson.com/product-images/99/3.jpg",
-            "https://cdn.dummyjson.com/product-images/99/4.jpg",
-            "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg"
-          ],
-          "quantity": 2,
           "user": "f84a"
         }
       ],
-      "totalAmount": 247,
-      "totalItems": 6,
+      "totalAmount": 41,
+      "totalItems": 1,
       "paymentMethod": "cash",
       "selectedAddress": {
         "name": "pavan ",
@@ -2683,7 +2631,72 @@
             "pincode": "098777"
           }
         ]
-      }
+      },
+      "deliveryStatus": "pending"
+    },
+    {
+      "id": "4d63",
+      "items": [
+        {
+          "id": "55",
+          "title": "Money Heist Printed Summer T Shirts",
+          "description": "Fabric Jercy, Size: M & L Wear Stylish Dual Stiched",
+          "price": 66,
+          "discountPercentage": 15.97,
+          "rating": 4.9,
+          "stock": 122,
+          "brand": "The Warehouse",
+          "category": "mens-shirts",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/55/1.jpg",
+            "https://cdn.dummyjson.com/product-images/55/2.webp",
+            "https://cdn.dummyjson.com/product-images/55/3.jpg",
+            "https://cdn.dummyjson.com/product-images/55/4.jpg",
+            "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": "f84a"
+        }
+      ],
+      "totalAmount": 66,
+      "totalItems": 1,
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "pavan ",
+        "email": "pavan143@gmail.com",
+        "phone": "7981127533",
+        "street": "Apollo  vari veedhi ",
+        "city": "AA puram ",
+        "state": "AP ",
+        "pincode": "123456"
+      },
+      "user": {
+        "id": "f84a",
+        "email": "pavan143@gmail.com",
+        "password": "Pavan@123",
+        "addresses": [
+          {
+            "name": "pavan ",
+            "email": "pavan143@gmail.com",
+            "phone": "7981127533",
+            "street": "Apollo  vari veedhi ",
+            "city": "AA puram ",
+            "state": "AP ",
+            "pincode": "123456"
+          },
+          {
+            "name": "Shree valli ",
+            "email": "pavan143@gmail.com",
+            "phone": "0987653232",
+            "street": "the street of lights",
+            "city": "ABCD",
+            "state": "XYZ",
+            "pincode": "098777"
+          }
+        ]
+      },
+      "deliveryStatus": "pending"
     }
   ]
 }
