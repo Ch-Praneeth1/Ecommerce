@@ -5,6 +5,8 @@ const CartPage = () => {
   return (
     <div>
       <Navbar>
+        
+      <h1 className='mx-auto text-2xl'>Cart Items</h1>
         <Cart></Cart>
       </Navbar>
     </div>

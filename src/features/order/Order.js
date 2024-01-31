@@ -18,7 +18,6 @@ export default function Order() {
     <>
     {!orders && <Navigate to="/" replace={true}></Navigate>}
       <div className="mx-auto max-w-7xl mt-10 bg-white px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-700">Ordered Items</h1>
         <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
           <div className="flow-root">
             <ul role="list" className="-my-6 divide-y divide-gray-200">

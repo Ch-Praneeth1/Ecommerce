@@ -3,7 +3,6 @@ import './App.css';
 import { HomePage } from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
-import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -19,8 +18,8 @@ import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import PageNotFoundPage from './pages/PageNotFoundPage';
 import OrderSuccesspage from './pages/OrderSuccesspage';
-import Order from './features/order/Order';
 import OrderDetailsPage from './pages/OrderDetailsPage';
+import UserProfilePage from './pages/UserProfilePage';
 
 const router = createBrowserRouter([
   {
@@ -78,6 +77,14 @@ const router = createBrowserRouter([
     path: "/order-details",
     element:(
       <OrderDetailsPage></OrderDetailsPage>
+    )
+  },
+  {
+    path: "/user-profile",
+    element:(
+      <Protected>
+        <UserProfilePage></UserProfilePage>
+      </Protected>
     )
   },
   {
