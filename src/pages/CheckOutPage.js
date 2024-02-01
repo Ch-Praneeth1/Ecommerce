@@ -9,8 +9,9 @@ import { clearCartAsync, deleteItemFromCartAsync, selectAllCartItems, updateCart
 // } from './cartSlice';
 
 import { useForm } from 'react-hook-form';
-import { selectLoggedInUser, updateUserAsync } from '../features/auth/authSlice';
+import { updateUserAsync } from '../features/auth/authSlice';
 import { createOrderAsync, selectCurrentPlacedOrder } from '../features/order/orderSlice';
+import { selectUserInfo } from '../features/user/userSlice';
 
 
 
@@ -21,7 +22,7 @@ const CheckOutPage = () => {
     const totalAmount = items.reduce((amount,item)=> item.price*item.quantity +amount,0)
     const totalItems = items.reduce((total,item)=> item.quantity+ total,0)
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
-    const user = useSelector(selectLoggedInUser)
+    const user = useSelector(selectUserInfo)
     const [paymentMethod, setPaymentMethod] = useState("cash")
     const [selectedAddress, setSelectedAddress] = useState(null)
     const currentOrder = useSelector(selectCurrentPlacedOrder)

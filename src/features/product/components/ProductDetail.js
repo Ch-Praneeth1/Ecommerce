@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchProductByIdAsync,selectProductById } from '../productSlice';
 import {  addToCartAsync } from '../../cart/cartSlice';
-import { selectLoggedInUser } from '../../auth/authSlice';
+import { selectUserInfo } from '../../user/userSlice';
 
 
 // TODO: add color, size, highlights to our original data to each product
@@ -43,7 +43,7 @@ export default function ProductDetail() {
   const dispatch = useDispatch();
   const {id} = useParams()
   const product = useSelector(selectProductById)
-  const user = useSelector(selectLoggedInUser)
+  const user = useSelector(selectUserInfo)
 
 
   const handleAddCart = (e) =>{
