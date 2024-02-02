@@ -8,7 +8,7 @@ import {
   selectAllBrands,
   selectAllCategories,
   fetchAllCategoriesAsync,
-} from '../productSlice';
+} from '../../product/productSlice';
 
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
@@ -30,7 +30,7 @@ function classNames(...classes) {
 
 
 
-export default function ProductList() {
+export default function AdminProductList() {
   // const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -169,9 +169,16 @@ export default function ProductList() {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <DesktopFilter handleFilter={handleFilter} filters={filters}></DesktopFilter>
-
+              
               {/* Product grid */}
               <div className="lg:col-span-3">
+              <div>
+              <Link
+                  to='/admin/product-form'
+                  className="rounded-md bg-green-600  px-3 my-5 mx-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  Add New Product
+              </Link>
+                </div>
                 <ProductGrid products={products}></ProductGrid>
               </div>
             </div>
@@ -422,6 +429,7 @@ const ProductGrid = ({products}) => {
       {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Products</h2> */}
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
           {products.map((product) => (
+            <div>
             <Link to={`/product-detail/${product.id}`} key={product.id}>
             <div className="group relative border-solid border-2 border-gray-200 p-2">
               <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
@@ -449,13 +457,23 @@ const ProductGrid = ({products}) => {
 
                 <p className="text-sm block font-medium line-through text-gray-400">${product.price}</p>
                 </div>
+                
               </div>
               {product.deleted && <div>
-                  <p className='text-sm text-red-600'>product deleted</p>
+                <p className='text-sm text-red-600'>product deleted</p>
               </div>}
-              </div>
-
+            </div>
+            
             </Link>
+            <div className='mt-5'>
+              <Link
+                  to={`/admin/product-form/edit/${product.id}`}
+                  type="submit"
+                  className="rounded-md bg-blue-600 px-3 my-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  Edit Product
+              </Link>
+                </div>
+            </div>
           ))}
         </div>
       </div>
