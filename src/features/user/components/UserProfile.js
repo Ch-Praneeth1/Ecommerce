@@ -6,11 +6,12 @@ import { useForm } from 'react-hook-form'
 
 const UserProfile = () => {
   const user = useSelector(selectUserInfo)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() 
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1);
   const [showAddAddressForm, setShowAddAddressForm] = useState(false);
-
   const { register, handleSubmit, watch, setValue, reset, formState: { errors } } = useForm();
+
+  // TODO: Need to add payment section when we work on backend
 
   const handleEdit = (addressUpdate,index) => {
     const newUser = {...user,addresses:[...user.addresses]};

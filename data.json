@@ -2499,6 +2499,15 @@
           "email": "pavan143@gmail.com",
           "pincode": "741235",
           "state": "AP "
+        },
+        {
+          "name": "Haritha",
+          "email": "pavan143@gmail.com",
+          "phone": "2100080033",
+          "street": "pharmacy vari veedhi ",
+          "city": "Kakinda ",
+          "state": "AP ",
+          "pincode": "852963"
         }
       ]
     }
@@ -3005,6 +3014,78 @@
             "city": "Vijayawada ",
             "state": "AP ",
             "pincode": "742369"
+          }
+        ]
+      },
+      "deliveryStatus": "pending"
+    },
+    {
+      "id": "2265",
+      "items": [
+        {
+          "id": "77",
+          "title": "Rose Ring",
+          "description": "Brand: The Greetings Flower Colour: RedRing Colour: GoldenSize: Adjustable",
+          "price": 100,
+          "discountPercentage": 3.22,
+          "rating": 4.21,
+          "stock": 149,
+          "brand": "Copenhagen Luxe",
+          "category": "womens-jewellery",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/77/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/77/1.jpg",
+            "https://cdn.dummyjson.com/product-images/77/2.jpg",
+            "https://cdn.dummyjson.com/product-images/77/3.jpg",
+            "https://cdn.dummyjson.com/product-images/77/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": "f84a"
+        }
+      ],
+      "totalAmount": 100,
+      "totalItems": 1,
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Haritha",
+        "email": "pavan143@gmail.com",
+        "phone": "2100080033",
+        "street": "pharmacy vari veedhi ",
+        "city": "Kakinda ",
+        "state": "AP ",
+        "pincode": "852963"
+      },
+      "user": {
+        "id": "f84a",
+        "email": "pavan143@gmail.com",
+        "password": "Pavan@123",
+        "addresses": [
+          {
+            "name": "M Pavan Shekar Reddy",
+            "street": "Jai Shree Rama colony",
+            "phone": "9989334372",
+            "city": "Hyderabad ",
+            "email": "pavan143@gmail.com",
+            "pincode": "789632",
+            "state": "Telangana "
+          },
+          {
+            "name": "shree valli",
+            "street": "the street of lights",
+            "phone": "213347823789",
+            "city": "Guntur",
+            "email": "pavan143@gmail.com",
+            "pincode": "741235",
+            "state": "AP "
+          },
+          {
+            "name": "Haritha",
+            "email": "pavan143@gmail.com",
+            "phone": "2100080033",
+            "street": "pharmacy vari veedhi ",
+            "city": "Kakinda ",
+            "state": "AP ",
+            "pincode": "852963"
           }
         ]
       },
