@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { fetchProductByIdAsync,selectProductById } from '../../product/productSlice';
 import {  addToCartAsync } from '../../cart/cartSlice';
 import { selectUserInfo } from '../../user/userSlice';
+import { discountPrice } from '../../../app/constants';
 
 
 // TODO: add color, size, highlights to our original data to each product
@@ -131,7 +132,8 @@ export default function AdminProductDetail() {
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
-            <p className="text-3xl tracking-tight text-gray-900">${product.price}</p>
+            <p className="text-3xl tracking-tight text-gray-900">${discountPrice(product)}</p>
+            <p className="text-3xl tracking-tight text-gray-900 line-through">${product.price}</p>
 
             {/* Reviews */}
             <div className="mt-6">

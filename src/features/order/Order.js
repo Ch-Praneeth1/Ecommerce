@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllOrderByUserIdAsync, selectAllOrdersByUserId } from "./orderSlice";
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { StarIcon } from "@heroicons/react/24/outline";
 import { selectUserInfo } from "../user/userSlice";
 
 export default function Order() {

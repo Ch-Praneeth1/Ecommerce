@@ -15,6 +15,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, StarIcon } from '@heroicons/react/20/solid'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
+import { discountPrice } from '../../../app/constants';
 
 const sortOptions = [
   { name: 'Best Rating', sort:"rating", order:"desc", current: false },
@@ -445,7 +446,7 @@ const ProductGrid = ({products}) => {
                     </p>
                 </div>
                 <div>
-                <p className="text-sm block font-medium text-gray-900">${Math.round(product.price*(1-product.discountPercentage/100))}</p>
+                <p className="text-sm block font-medium text-gray-900">${discountPrice(product)}</p>
 
                 <p className="text-sm block font-medium line-through text-gray-400">${product.price}</p>
                 </div>
