@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
+import Footer from '../features/common/Footer'
 import { clearCartAsync, deleteItemFromCartAsync, selectAllCartItems, updateCartAsync } from '../features/cart/cartSlice';
 // import {
 //   increment,
@@ -404,6 +405,7 @@ const CheckOutPage = () => {
             </div>
         </div>
     </div>
+    <Footer></Footer>
     </>
   )
 }
