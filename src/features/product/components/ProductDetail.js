@@ -4,7 +4,7 @@ import { RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchProductByIdAsync,selectProductById } from '../productSlice';
-import {  addToCartAsync } from '../../cart/cartSlice';
+import {  addToCartAsync, selectAllCartItems } from '../../cart/cartSlice';
 import { selectUserInfo } from '../../user/userSlice';
 import { discountPrice } from '../../../app/constants';
 
@@ -45,11 +45,17 @@ export default function ProductDetail() {
   const {id} = useParams()
   const product = useSelector(selectProductById)
   const user = useSelector(selectUserInfo)
+  const items = useSelector(selectAllCartItems)
 
 
   const handleAddCart = (e) =>{
       e.preventDefault();
-      dispatch(addToCartAsync({...product,quantity:1,user:user.id}))
+      if(items.findIndex(item => item.id===product.id)>=0){    // If item is already in the cart dont add it
+        alert("already item is present in the cart")
+        //TODO: need to add a proper aleart
+      }else{
+        dispatch(addToCartAsync({...product,quantity:1,user:user.id}))
+      }
   };
 
   useEffect(()=>{
