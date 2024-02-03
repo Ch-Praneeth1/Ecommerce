@@ -7,7 +7,7 @@ import { fetchProductByIdAsync,selectProductById } from '../productSlice';
 import {  addToCartAsync, selectAllCartItems } from '../../cart/cartSlice';
 import { selectUserInfo } from '../../user/userSlice';
 import { discountPrice } from '../../../app/constants';
-
+import { useAlert } from "react-alert";
 
 // TODO: add color, size, highlights to our original data to each product
 const colors =  [
@@ -46,15 +46,17 @@ export default function ProductDetail() {
   const product = useSelector(selectProductById)
   const user = useSelector(selectUserInfo)
   const items = useSelector(selectAllCartItems)
-
+  const alert = useAlert()
 
   const handleAddCart = (e) =>{
       e.preventDefault();
       if(items.findIndex(item => item.id===product.id)>=0){    // If item is already in the cart dont add it
-        alert("already item is present in the cart")
-        //TODO: need to add a proper aleart
+        alert.error("Item already in cart!");
+                //DONE: need to add a proper aleart 
       }else{
         dispatch(addToCartAsync({...product,quantity:1,user:user.id}))
+                //TODO: it should wait until the server responds to the request form the backend 
+        alert.success("Item added to cart!");
       }
   };
 
@@ -268,7 +270,11 @@ export default function ProductDetail() {
               >
                 Add to cart
               </button>
+
+              
+
             </form>
+            
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
