@@ -9,12 +9,13 @@ import {
   selectAllCategories,
   fetchAllCategoriesAsync,
 } from '../productSlice';
-
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, StarIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
 import { discountPrice } from '../../../app/constants';
+import {selectProductListFetchingStatus} from '../productSlice';
+import {ShimmerHome} from '../../shimmer/ShimmerHome'
 
 const sortOptions = [
   { name: 'Best Rating', sort:"rating", order:"desc", current: false },
@@ -39,7 +40,7 @@ export default function ProductList() {
   const categories = useSelector(selectAllCategories)
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-
+  const status = useSelector(selectProductListFetchingStatus);
   const filters = [
     {
       id: 'category',
@@ -92,6 +93,7 @@ export default function ProductList() {
     dispatch(fetchAllCategoriesAsync())
   },[]);
 
+ if(status === "idle"){
   return (
     <div className="bg-white">
       <div>
@@ -187,6 +189,10 @@ export default function ProductList() {
       </div>
     </div>
   );
+ }
+ else{
+  return <ShimmerHome></ShimmerHome>
+ }
 
 }
 

@@ -3,7 +3,7 @@ import {  Disclosure, Menu,  } from '@headlessui/react'
 
 
 
-export const Shimmer = () => {
+export const ShimmerHome = () => {
     const filters = [
         {
           id: 'category',
