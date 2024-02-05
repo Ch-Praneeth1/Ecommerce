@@ -74,7 +74,14 @@ export const Navbar = ({children}) => {
                     </div>
                   </div>
                   <div className="hidden md:block">
+
+
+
                     <div className="ml-4 flex items-center md:ml-6">
+
+                      {/** cart icon  */}
+                    {user.role==="user" &&
+                    <>
                     <Link to="/cart">
                       <button
                         type="button"
@@ -87,6 +94,10 @@ export const Navbar = ({children}) => {
                         <span className="inline-flex items-center rounded-md ml-1 bg-gray-50 px-2 py-1  text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
                             {noOfItemsInCart}
                         </span>
+                        </> 
+                     }
+
+                        
 
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
@@ -143,7 +154,7 @@ export const Navbar = ({children}) => {
 
               <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                  {navigation.map((item) => (
+                  {navigation.map((item) => item[user.role] ? (
                     <Disclosure.Button
                       key={item.name}
                       as="a"
@@ -156,7 +167,7 @@ export const Navbar = ({children}) => {
                     >
                       {item.name}
                     </Disclosure.Button>
-                  ))}
+                  ): null)}
                 </div>
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
@@ -167,6 +178,9 @@ export const Navbar = ({children}) => {
                       <div className="text-base font-medium leading-none text-white">{user.name}</div>
                       <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
                     </div>
+                    
+                    {user.role === "user" && 
+                    <>
                     <Link to="/cart">
                     <button
                       type="button"
@@ -179,9 +193,10 @@ export const Navbar = ({children}) => {
                     <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
                     {noOfItemsInCart}
                     </span>
+                    </>}
                   </div>
                   <div className="mt-3 space-y-1 px-2">
-                    {userNavigation.map((item) => (
+                    {userNavigation.map((item) => item[user.role]? (
                       <Disclosure.Button
                         key={item.name}
                         as="a"
@@ -190,7 +205,7 @@ export const Navbar = ({children}) => {
                       >
                         {item.name}
                       </Disclosure.Button>
-                    ))}
+                    ): null)}
                   </div>
                 </div>
               </Disclosure.Panel>

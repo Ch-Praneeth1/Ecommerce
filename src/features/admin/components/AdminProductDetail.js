@@ -44,13 +44,7 @@ export default function AdminProductDetail() {
   const dispatch = useDispatch();
   const {id} = useParams()
   const product = useSelector(selectProductById)
-  const user = useSelector(selectUserInfo)
 
-
-  const handleAddCart = (e) =>{
-      e.preventDefault();
-      dispatch(addToCartAsync({...product,quantity:1,user:user.id}))
-  };
 
   useEffect(()=>{
     dispatch(fetchProductByIdAsync(id))
@@ -255,13 +249,12 @@ export default function AdminProductDetail() {
                 </RadioGroup>
               </div>
 
-              <button
-                type="submit"
-                onClick={e => (handleAddCart(e))}
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              <div
+               
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Add to cart
-              </button>
+                Admin can't add to cart
+              </div>
             </form>
           </div>
 
