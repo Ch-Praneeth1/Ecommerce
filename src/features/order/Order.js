@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { selectUserInfo } from "../user/userSlice";
 import ShimmerOrder from "../shimmer/ShimmerOrder";
-import emptyOrder from '../../emptyOrders.png';
+import emptyOrder from '../../images/emptyOrders.png';
 
 
 export default function Order() {

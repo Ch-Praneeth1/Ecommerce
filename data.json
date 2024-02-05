@@ -2584,21 +2584,22 @@
   ],
   "cart": [
     {
-      "id": "3",
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1000,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
+      "id": "4",
+      "title": "OPPOF19",
+      "description": "OPPO F19 is officially announced on April 2021.",
+      "price": 280,
+      "discountPercentage": 17.91,
+      "rating": 4.3,
+      "stock": 123,
+      "brand": "OPPO",
       "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
       "images": [
-        "https://cdn.dummyjson.com/product-images/3/1.jpg",
-        "https://cdn.dummyjson.com/product-images/3/1.jpg",
-        "https://cdn.dummyjson.com/product-images/3/1.jpg",
-        "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg"
+        "https://cdn.dummyjson.com/product-images/4/1.jpg",
+        "https://cdn.dummyjson.com/product-images/4/2.jpg",
+        "https://cdn.dummyjson.com/product-images/4/3.jpg",
+        "https://cdn.dummyjson.com/product-images/4/4.jpg",
+        "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
       ],
       "quantity": 1,
       "user": "f84a"
@@ -2689,6 +2690,79 @@
         "role": "user"
       },
       "deliveryStatus": "shipping"
+    },
+    {
+      "id": "2529",
+      "items": [
+        {
+          "id": "3",
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1000,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg",
+            "https://cdn.dummyjson.com/product-images/3/1.jpg",
+            "https://cdn.dummyjson.com/product-images/3/1.jpg",
+            "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": "f84a"
+        }
+      ],
+      "totalAmount": 845,
+      "totalItems": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "M Pavan Shekar Reddy",
+        "street": "Jai Shree Rama colony",
+        "phone": "9989334372",
+        "city": "Hyderabad ",
+        "email": "pavan143@gmail.com",
+        "pincode": "789632",
+        "state": "Telangana "
+      },
+      "user": {
+        "id": "f84a",
+        "email": "pavan143@gmail.com",
+        "password": "Pavan@123",
+        "addresses": [
+          {
+            "name": "M Pavan Shekar Reddy",
+            "street": "Jai Shree Rama colony",
+            "phone": "9989334372",
+            "city": "Hyderabad ",
+            "email": "pavan143@gmail.com",
+            "pincode": "789632",
+            "state": "Telangana "
+          },
+          {
+            "name": "shree valli",
+            "street": "the street of lights",
+            "phone": "213347823789",
+            "city": "Guntur",
+            "email": "pavan143@gmail.com",
+            "pincode": "741235",
+            "state": "AP "
+          },
+          {
+            "name": "Haritha",
+            "email": "pavan143@gmail.com",
+            "phone": "2100080033",
+            "street": "pharmacy vari veedhi ",
+            "city": "Kakinda ",
+            "state": "AP ",
+            "pincode": "852963"
+          }
+        ],
+        "role": "user"
+      },
+      "deliveryStatus": "pending"
     }
   ]
 }

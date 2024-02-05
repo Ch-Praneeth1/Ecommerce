@@ -1,0 +1,6 @@
+1. Remove functionality in cart page ---> better removing of product from cart 
+2. user profile 
+3. admin profile 
+4. image uploding from pc in add product page       
+5. update order success page with image             DONE
+6. update error page with image                     DONE

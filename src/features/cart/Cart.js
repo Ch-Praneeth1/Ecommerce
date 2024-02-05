@@ -11,7 +11,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom';
 import { deleteItemFromCartAsync, selectAllCartItems, updateCartAsync } from './cartSlice';
 import { discountPrice } from '../../app/constants';
-import emptyCart from '../../emptyCart.png';
+import emptyCart from '../../images/emptyCart.png';
 
 
 export default function Cart() {
