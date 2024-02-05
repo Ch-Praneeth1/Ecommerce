@@ -2584,24 +2584,24 @@
   ],
   "cart": [
     {
-      "id": "9fb3",
-      "title": "surya's toys",
-      "description": "New toys that children can happily play with",
-      "price": 10,
-      "brand": "Bake Parlor Big",
-      "category": "home decoration",
-      "discountPercentage": 1,
-      "stock": 10,
-      "thumbnail": "https://cdn.dummyjson.com/product-images/2/1.jpg",
+      "id": "3",
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1000,
+      "discountPercentage": 15.46,
+      "rating": 4.09,
+      "stock": 36,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
       "images": [
-        "https://cdn.dummyjson.com/product-images/8/2.jpg",
-        "https://cdn.dummyjson.com/product-images/8/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/4.jpg",
-        "https://cdn.dummyjson.com/product-images/2/1.jpg"
+        "https://cdn.dummyjson.com/product-images/3/1.jpg",
+        "https://cdn.dummyjson.com/product-images/3/1.jpg",
+        "https://cdn.dummyjson.com/product-images/3/1.jpg",
+        "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg"
       ],
-      "rating": 0,
       "quantity": 1,
-      "user": "1"
+      "user": "f84a"
     }
   ],
   "orders": [
@@ -2655,7 +2655,7 @@
       "paymentMethod": "card",
       "selectedAddress": {
         "name": "Anu Radha ",
-        "email": "praneethvardhanreddy143@gmail.com",
+        "email": "chpraneethvardhanreddy143@gmail.com",
         "phone": "9866537956",
         "street": "brammam gari veedhi ",
         "city": "Patha Mallai Pallam",
@@ -2678,7 +2678,7 @@
           },
           {
             "name": "Anu Radha ",
-            "email": "praneethvardhanreddy143@gmail.com",
+            "email": "chpraneethvardhanreddy143@gmail.com",
             "phone": "9866537956",
             "street": "brammam gari veedhi ",
             "city": "Patha Mallai Pallam",
