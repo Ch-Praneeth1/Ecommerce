@@ -22,9 +22,9 @@ const navigation = [
 
 ]
 const userNavigation = [
-  { name: 'My Profile', link: '/user-profile' },
-  { name: 'My Orders', link: '/order-details' },
-  { name: 'Sign Out', link: '/logout' },
+  { name: 'My Profile', link: '/user-profile',user:true,admin:true },    //TODO: should remove the cart, checkout page, my orders for admin 
+  { name: 'My Orders', link: '/order-details',user:true },      //my orders is not required for admin
+  { name: 'Sign Out', link: '/logout',user:true,admin:true },
 ]
 
 function classNames(...classes) {
@@ -107,7 +107,7 @@ export const Navbar = ({children}) => {
                           leaveTo="transform opacity-0 scale-95"
                         >
                           <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            {userNavigation.map((item) => (
+                            {userNavigation.map((item) => item[user.role] ?(
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
                                   <Link to={item.link}
@@ -120,7 +120,7 @@ export const Navbar = ({children}) => {
                                   </Link>
                                 )}
                               </Menu.Item>
-                            ))}
+                            ) : null )}
                           </Menu.Items>
                         </Transition>
                       </Menu>
