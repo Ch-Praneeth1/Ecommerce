@@ -45,7 +45,7 @@ const ShimmerProductDetail = () => {
             </div>
           </div>
           <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 bg-gray-100 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-            
+             
           </div>
         </div>
 
@@ -136,7 +136,7 @@ const ShimmerProductDetail = () => {
                               <span
                                 className={classNames(
                                   active ? 'border' : 'border-2',
-                                  checked ? 'border-indigo-500' : 'border-transparent',
+                                  checked ? 'border-gray-100' : 'border-transparent',
                                   'pointer-events-none absolute -inset-px rounded-md'
                                 )}
                                 aria-hidden="true"

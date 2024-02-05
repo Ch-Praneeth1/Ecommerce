@@ -1,21 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllOrderByUserIdAsync, selectAllOrdersByUserId } from "./orderSlice";
+import { fetchAllOrderByUserIdAsync, selectAllOrdersByUserId, selectOrderFetchingStatus } from "./orderSlice";
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { selectUserInfo } from "../user/userSlice";
+import ShimmerOrder from "../shimmer/ShimmerOrder";
 
 export default function Order() {
   const user = useSelector(selectUserInfo)
   const dispatch = useDispatch()
   const orders = useSelector(selectAllOrdersByUserId)
-  console.log(orders)
+  const status = useSelector(selectOrderFetchingStatus)
+  // console.log(orders)
   useEffect(() => {
     dispatch(fetchAllOrderByUserIdAsync(user.id))
   },[dispatch,user])
 
-  return (
+
+  if(status === "idle"){
+    return (                                    //TODO: Need to add conditional rendering (it show's "no oreder yet" if the user didn't placed any)
     <>
-    {!orders && <Navigate to="/" replace={true}></Navigate>}
+    {!orders && <Navigate to="/" replace={true}></Navigate>}      
       <div className="mx-auto max-w-7xl mt-10 bg-white px-4 sm:px-6 lg:px-8">
         <div className=" px-4 py-6 sm:px-6">
           <div className="flow-root ">
@@ -119,4 +123,8 @@ export default function Order() {
     </>
     
   );
+  }
+  else{
+    return <ShimmerOrder></ShimmerOrder>
+  }
 }

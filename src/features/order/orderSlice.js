@@ -91,4 +91,5 @@ export const { increment } = orderSlice.actions;
 export const selectCurrentPlacedOrder = (state) => state.order.currentPlacedOrder;
 export const selectAllOrdersByUserId = (state) =>  state.order.orders;
 export const selectAllOrders = (state) => state.order.orders;
+export const selectOrderFetchingStatus = (state) => state.order.status
 export default orderSlice.reducer;

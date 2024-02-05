@@ -30,7 +30,7 @@ import AdminProductFormPage from './pages/AdminProductFormPage';
 import { AdminOrdersPage } from './pages/AdminOrdersPage';
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
-import ShimmerProductDetail from './features/shimmer/ShimmerProductDetail';
+import ShimmerOrder from './features/shimmer/ShimmerOrder';
 
 
 const options = {
@@ -159,7 +159,7 @@ const router = createBrowserRouter([
   {
     path: "/shimmer",
     element:(
-      <ShimmerProductDetail></ShimmerProductDetail>         //TODO: cleanup
+      <ShimmerOrder></ShimmerOrder>        //TODO: cleanup
     )
   },
   {
