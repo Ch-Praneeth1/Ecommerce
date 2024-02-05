@@ -62,6 +62,10 @@ export default function ProductDetail() {
       }
   };
 
+  const handleOutOfStock = (e) => {
+    alert.error('Product Out of stcok!!')
+  }
+
   useEffect(()=>{
     dispatch(fetchProductByIdAsync(id))
   },[dispatch,id]);
@@ -266,6 +270,8 @@ export default function ProductDetail() {
                   </RadioGroup>
                 </div>
   
+                {product.stock>=1 && 
+                <>
                 <button
                   type="submit"
                   onClick={e => (handleAddCart(e))}
@@ -273,6 +279,18 @@ export default function ProductDetail() {
                 >
                   Add to cart
                 </button>
+                </>}
+
+                {product.stock<=0 && 
+                <>
+                <div
+                  onClick={e => handleOutOfStock(e)}
+                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-yellow-400 px-8 py-3 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  Out Of Stock
+                </div>
+                </>}
+              
   
                 
   
