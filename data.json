@@ -2593,25 +2593,45 @@
   ],
   "cart": [
     {
-      "id": "4",
-      "title": "OPPOF19",
-      "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
-      "discountPercentage": 17.91,
-      "rating": 4.3,
-      "stock": 123,
-      "brand": "OPPO",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+      "id": "11",
+      "title": "perfume Oil",
+      "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+      "price": 13,
+      "discountPercentage": 8.4,
+      "rating": 4.26,
+      "stock": 65,
+      "brand": "Impression of Acqua Di Gio",
+      "category": "fragrances",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
       "images": [
-        "https://cdn.dummyjson.com/product-images/4/1.jpg",
-        "https://cdn.dummyjson.com/product-images/4/2.jpg",
-        "https://cdn.dummyjson.com/product-images/4/3.jpg",
-        "https://cdn.dummyjson.com/product-images/4/4.jpg",
-        "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+        "https://cdn.dummyjson.com/product-images/11/1.jpg",
+        "https://cdn.dummyjson.com/product-images/11/2.jpg",
+        "https://cdn.dummyjson.com/product-images/11/3.jpg",
+        "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"
       ],
       "quantity": 1,
-      "user": "f84a"
+      "user": "1"
+    },
+    {
+      "id": "18",
+      "title": "Oil Free Moisturizer 100ml",
+      "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+      "price": 40,
+      "discountPercentage": 13.1,
+      "rating": 4.56,
+      "stock": 88,
+      "brand": "Dermive",
+      "category": "skincare",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/18/1.jpg",
+        "https://cdn.dummyjson.com/product-images/18/2.jpg",
+        "https://cdn.dummyjson.com/product-images/18/3.jpg",
+        "https://cdn.dummyjson.com/product-images/18/4.jpg",
+        "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": "1"
     }
   ],
   "orders": [

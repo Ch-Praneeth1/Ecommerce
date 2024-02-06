@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import { deleteItemFromCartAsync, selectAllCartItems, updateCartAsync } from './cartSlice';
 import { discountPrice } from '../../app/constants';
 import emptyCart from '../../images/emptyCart.png';
-
+import Modal from '../common/Modal';
 
 export default function Cart() {
   // const count = useSelector(selectCount);
@@ -21,6 +21,7 @@ export default function Cart() {
   const items = useSelector(selectAllCartItems)
   const totalAmount = items.reduce((amount,item)=> discountPrice(item)*item.quantity +amount,0)
   const totalItems = items.reduce((total,item)=> item.quantity+ total,0)
+  const [openModal, setOpenModal] = useState(null);
 
   const handleQuantity = (e,item) => {
     dispatch(updateCartAsync({...item,quantity: +e.target.value}))
@@ -32,7 +33,9 @@ export default function Cart() {
   
   if(items.length>0){
     return (
+      
       <>
+      
       <h1 className='mx-auto text-2xl'>Cart Items</h1>
         <div className="mx-auto max-w-7xl mt-10 bg-white px-4 sm:px-6 lg:px-8">
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -74,9 +77,20 @@ export default function Cart() {
   
   
                     <div className="flex">
+
+                    <Modal 
+                      title={`Delete ${item.title} `} 
+                      message="Are you sure, Do you really want to remove the item from the cart?" 
+                      cancleOption="Cancel" 
+                      dangerOption="Delete" 
+                      modalAction={(e) => handleDeleteItem(e,item.id)}
+                      cancleAction={() => setOpenModal(-1)}
+                      showModal={openModal === item.id}
+                    ></Modal>
+
                       <button
                         type="button"
-                        onClick={e=>handleDeleteItem(e,item.id)}
+                        onClick={(e) => {setOpenModal(item.id)}}
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Remove
