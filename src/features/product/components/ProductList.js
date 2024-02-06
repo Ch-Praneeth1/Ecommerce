@@ -8,30 +8,25 @@ import {
   selectAllBrands,
   selectAllCategories,
   fetchAllCategoriesAsync,
+  selectProductListFetchingStatus,
 } from '../productSlice';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, StarIcon } from '@heroicons/react/20/solid'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
 import { discountPrice } from '../../../app/constants';
-import {selectProductListFetchingStatus} from '../productSlice';
-import {ShimmerHome} from '../../shimmer/ShimmerHome'
 import { selectLoggedInUser } from '../../auth/authSlice';
+import { ShimmerHome } from '../../shimmer/ShimmerHome';
 
 const sortOptions = [
   { name: 'Best Rating', sort:"rating", order:"desc", current: false },
   { name: 'Price: Low to High', sort:"price", order:"asc",  current: false },
   { name: 'Price: High to Low', sort:"price", order:"desc", current: false },
 ]
-
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-
-
-
 export default function ProductList() {
   // const count = useSelector(selectCount);
   const dispatch = useDispatch();
@@ -41,8 +36,8 @@ export default function ProductList() {
   const categories = useSelector(selectAllCategories)
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-  const status = useSelector(selectProductListFetchingStatus);
   const user = useSelector(selectLoggedInUser);
+  const [status, setStatus] = useState(false)
   const filters = [
     {
       id: 'category',
@@ -55,7 +50,6 @@ export default function ProductList() {
       options: brands,
     },
   ]
-
   const handleFilter = (e,section,option) =>{
     const newFilter = {...filter};
     if(e.target.checked)
@@ -77,27 +71,23 @@ export default function ProductList() {
     setFilter(newFilter)
     // console.log(section.id,option.value)
   }
-
   const handleSort =(e,option) =>{
-    const sort = { _sort:option.sort};     //const sort = { _sort:option.sort, _order:option.order};  
-                                           //TODO: _order is not working in json-server should handle this at backend level
+    const sort = { _sort:option.sort, _order:option.order};
     setSort(sort);
   }
-
-
   useEffect(()=>{
     dispatch(fetchProductsByFiltersAsync({filter, sort}))
-    
+    setStatus(true)
   },[dispatch,filter,sort]);
-
   useEffect(()=>{
     dispatch(fetchAllBrandsAsync())
     dispatch(fetchAllCategoriesAsync())
   },[]);
-
- if(status === "idle"){
-  return (
-    <div className="bg-white">
+  
+  
+    if(status){
+      return (
+        <div className="bg-white">
       <div>
         {/* Mobile filter dialog */}
         <MobileFilter handleFilter={handleFilter} mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen} filters={filters}></MobileFilter>
@@ -190,18 +180,15 @@ export default function ProductList() {
         </main>
       </div>
     </div>
-  );
- }
- else{
-  return <ShimmerHome></ShimmerHome>
- }
+      );
+    }
+  
+  else{
+    return <ShimmerHome></ShimmerHome>
+  }
 
 }
-
-
-
 const MobileFilter = ({handleFilter, mobileFiltersOpen, setMobileFiltersOpen, filters}) => {
-
   return (
     <Transition.Root show={mobileFiltersOpen} as={Fragment}>
           <Dialog as="div" className="relative z-40 lg:hidden max-h-[1100px] overflow-y-scroll hide-scrollbar" onClose={setMobileFiltersOpen}>
@@ -216,7 +203,6 @@ const MobileFilter = ({handleFilter, mobileFiltersOpen, setMobileFiltersOpen, fi
             >
               <div className="fixed inset-0 bg-black bg-opacity-25" />
             </Transition.Child>
-
             <div className="fixed inset-0 z-40 flex">
               <Transition.Child
                 as={Fragment}
@@ -239,11 +225,9 @@ const MobileFilter = ({handleFilter, mobileFiltersOpen, setMobileFiltersOpen, fi
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
-
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
                     
-
                     {filters.map((section) => (
                       <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
                         {({ open }) => (
@@ -295,7 +279,6 @@ const MobileFilter = ({handleFilter, mobileFiltersOpen, setMobileFiltersOpen, fi
         </Transition.Root>
   )
 }
-
 const DesktopFilter = ({handleFilter, filters}) => {
   return (
     <form className="hidden lg:block max-h-[1100px] overflow-y-scroll hide-scrollbar">
@@ -345,7 +328,6 @@ const DesktopFilter = ({handleFilter, filters}) => {
               </form>
   )
 }
-
 // const Pagination = () => {
 //   return (
 //     <>
@@ -422,7 +404,6 @@ const DesktopFilter = ({handleFilter, filters}) => {
 //    </>
 //   )
 // }
-
 const ProductGrid = ({products,user}) => {
   return (
       
@@ -434,6 +415,9 @@ const ProductGrid = ({products,user}) => {
             (!product.deleted ? <Link to={`/product-detail/${product.id}`} key={product.id}>
             <div className=" group relative border-solid border-2 border-gray-200 p-2">
               <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+              {product.stock<=0 && <div className='bg-yellow-300 relative w-half rounded-sm'>
+                  <p className='  text-red-500 ml-2  text-lg  font-bold '>out of stock</p>
+              </div>}
                 <img
                   src={product.thumbnail}
                   alt={product.title}
@@ -460,15 +444,16 @@ const ProductGrid = ({products,user}) => {
                 </div>
               </div>
               
-              {product.stock<=0 && <div>
-                  <p className='text-sm text-red-600'>out of stock</p>
-              </div>}
+            
               </div>
 
             </Link> : null )
           ) : (<Link to={`/admin/product-detail/${product.id}`} key={product.id}>
           <div className=" group relative border-solid border-2 border-gray-200 p-2">
             <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+            {product.stock<=0 && <div className='bg-yellow-300 relative w-half rounded-sm'>
+                  <p className='  text-red-500 ml-2  text-lg  font-bold '>Out of stock</p>
+              </div>}
               <img
                 src={product.thumbnail}
                 alt={product.title}
@@ -497,15 +482,12 @@ const ProductGrid = ({products,user}) => {
             {product.deleted && <div>
                 <p className='text-sm text-red-600'>product deleted</p>
             </div>}
-            {product.stock<=0 && <div>
-                <p className='text-sm text-red-600'>out of stock</p>
-            </div>}
+
             </div>
 
           </Link>))}
         </div>
       </div>
     </div>
-
   )
 }

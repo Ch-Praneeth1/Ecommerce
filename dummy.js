@@ -8,16 +8,15 @@ import {
   selectAllBrands,
   selectAllCategories,
   fetchAllCategoriesAsync,
-  selectProductListFetchingStatus,
-} from '../../product/productSlice';
-
+} from '../productSlice';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, StarIcon } from '@heroicons/react/20/solid'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
 import { discountPrice } from '../../../app/constants';
-import { ShimmerHome } from '../../shimmer/ShimmerHome';
+import {selectProductListFetchingStatus} from '../productSlice';
+import {ShimmerHome} from '../../shimmer/ShimmerHome'
+import { selectLoggedInUser } from '../../auth/authSlice';
 
 const sortOptions = [
   { name: 'Best Rating', sort:"rating", order:"desc", current: false },
@@ -33,7 +32,7 @@ function classNames(...classes) {
 
 
 
-export default function AdminProductList() {
+export default function dummy() {
   // const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -42,7 +41,8 @@ export default function AdminProductList() {
   const categories = useSelector(selectAllCategories)
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-  const [status, setStatus] = useState(false)
+  const status = useSelector(selectProductListFetchingStatus);
+  const user = useSelector(selectLoggedInUser);
   const filters = [
     {
       id: 'category',
@@ -75,18 +75,19 @@ export default function AdminProductList() {
      newFilter[section.id].splice(index,1);
     }
     setFilter(newFilter)
-    // console.log(section.id,option.value)
+    // console.log(newFilter)
   }
 
-  const handleSort =(e,option) =>{                    //TODO: sort order option not woring in json-server should handle this at backend
-    const sort = { _sort:option.sort};  //const sort = { _sort:option.sort, _order:option.order};
+  const handleSort =(e,option) =>{
+    const sort = { _sort:option.sort};     //const sort = { _sort:option.sort, _order:option.order};  
+                                           //TODO: _order is not working in json-server should handle this at backend level
     setSort(sort);
   }
 
 
   useEffect(()=>{
     dispatch(fetchProductsByFiltersAsync({filter, sort}))
-    setStatus(true)
+    
   },[dispatch,filter,sort]);
 
   useEffect(()=>{
@@ -94,116 +95,107 @@ export default function AdminProductList() {
     dispatch(fetchAllCategoriesAsync())
   },[]);
 
-  if(status){
-    return (
-      <div className="bg-white">
-        <div>
-          {/* Mobile filter dialog */}
-          <MobileFilter handleFilter={handleFilter} mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen} filters={filters}></MobileFilter>
-  
-          <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-5">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900">Products</h1>
-  
-              <div className="flex items-center">
-                <Menu as="div" className="relative inline-block text-left">
-                  <div>
-                    <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                      Sort
-                      <ChevronDownIcon
-                        className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                        aria-hidden="true"
-                      />
-                    </Menu.Button>
-                  </div>
-  
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <div className="py-1">
-                        {sortOptions.map((option) => (
-                          <Menu.Item key={option.name}>
-                            {({ active }) => (
-                              <p
-                                
-                                onClick={e=>(handleSort(e,option))}
-                                className={classNames(
-                                  option.current ? 'font-medium text-gray-900' : 'text-gray-500',
-                                  active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm'
-                                )}
-                              >
-                                {option.name}
-                              </p>
-                            )}
-                          </Menu.Item>
-                        ))}
-                      </div>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-  
-                <button type="button" className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
-                  <span className="sr-only">View grid</span>
-                  <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-                  onClick={() => setMobileFiltersOpen(true)}
+ if(status === "idle"){
+  return (
+    <div className="bg-white">
+      <div>
+        {/* Mobile filter dialog */}
+        <MobileFilter handleFilter={handleFilter} mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen} filters={filters}></MobileFilter>
+
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-5">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900">Products</h1>
+
+            <div className="flex items-center">
+              <Menu as="div" className="relative inline-block text-left">
+                <div>
+                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                    Sort
+                    <ChevronDownIcon
+                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+                </div>
+
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
                 >
-                  <span className="sr-only">Filters</span>
-                  <FunnelIcon className="h-5 w-5" aria-hidden="true" />
-                </button>
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1">
+                      {sortOptions.map((option) => (
+                        <Menu.Item key={option.name}>
+                          {({ active }) => (
+                            <p
+                              
+                              onClick={e=>(handleSort(e,option))}
+                              className={classNames(
+                                option.current ? 'font-medium text-gray-900' : 'text-gray-500',
+                                active ? 'bg-gray-100' : '',
+                                'block px-4 py-2 text-sm'
+                              )}
+                            >
+                              {option.name}
+                            </p>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+
+              <button type="button" className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
+                <span className="sr-only">View grid</span>
+                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                onClick={() => setMobileFiltersOpen(true)}
+              >
+                <span className="sr-only">Filters</span>
+                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+
+          <section aria-labelledby="products-heading" className="pb-24 pt-6">
+            {/* <h2 id="products-heading" className="sr-only">
+              Products
+            </h2> */}
+
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+              {/* Filters */}
+              <DesktopFilter handleFilter={handleFilter} filters={filters}></DesktopFilter>
+
+              {/* Product grid */}
+              <div className="lg:col-span-3">
+                <ProductGrid products={products} user={user}></ProductGrid>
               </div>
             </div>
-  
-            <section aria-labelledby="products-heading" className="pb-24 pt-6">
-              {/* <h2 id="products-heading" className="sr-only">
-                Products
-              </h2> */}
-  
-              <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-                {/* Filters */}
-                <DesktopFilter handleFilter={handleFilter} filters={filters}></DesktopFilter>
-                
-                {/* Product grid */}
-                <div className="lg:col-span-3">
-                <div>
-                <Link
-                    to='/admin/product-form'
-                    className="rounded-md bg-green-600  px-3 my-5 mx-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Add New Product
-                </Link>
-                  </div>
-                  <ProductGrid products={products}></ProductGrid>
-                </div>
-              </div>
-            </section>
-  
-                  {/* pagination 
-            <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-            <Pagination></Pagination>
-            </div>  */}
-  
-          </main>
-        </div>
-      </div>
-    );
-  
-  }
-  else{
-    return <ShimmerHome></ShimmerHome>
-  }
+          </section>
 
-  
+                {/* pagination 
+          <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+          <Pagination></Pagination>
+          </div>  */}
+
+        </main>
+      </div>
+    </div>
+  );
+ }
+ else{
+  return <ShimmerHome></ShimmerHome>
+ }
+
 }
 
 
@@ -333,7 +325,7 @@ const DesktopFilter = ({handleFilter, filters}) => {
                                   defaultValue={option.value}
                                   type="checkbox"
                                   defaultChecked={option.checked}
-                                  onChange={e=> handleFilter(e,section,option)}
+                                  onChange={(e) => handleFilter(e,section,option)}
                                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
                                 <label
@@ -431,20 +423,19 @@ const DesktopFilter = ({handleFilter, filters}) => {
 //   )
 // }
 
-const ProductGrid = ({products}) => {
+const ProductGrid = ({products,user}) => {
   return (
       
-    <div className="bg-white max-h-[1100px] overflow-y-scroll hide-scrollbar mt-4">
+    <div className="bg-white max-h-[1100px] overflow-y-scroll hide-scrollbar">
     <div className="mx-auto max-w-2xl px-4 py-5 sm:px-6 sm:py-5 lg:max-w-7xl lg:px-8">
       {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Products</h2> */}
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-          {products.map((product) => (
-            <div>
-            <Link to={`/admin/product-detail/${product.id}`} key={product.id}>
-            <div className="group relative border-solid border-2 border-gray-200 p-2">
+          {products.map((product) => user.role==="user" ? (
+            (!product.deleted ? <Link to={`/product-detail/${product.id}`} key={product.id}>
+            <div className=" group relative border-solid border-2 border-gray-200 p-2">
               <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
               {product.stock<=0 && <div className='bg-yellow-300 relative w-half rounded-sm'>
-                  <p className='  text-red-500 ml-2  text-lg  font-bold '>Stock 0</p>
+                  <p className='  text-red-500 ml-2  text-lg  font-bold '>out of stock</p>
               </div>}
                 <img
                   src={product.thumbnail}
@@ -470,24 +461,52 @@ const ProductGrid = ({products}) => {
 
                 <p className="text-sm block font-medium line-through text-gray-400">${product.price}</p>
                 </div>
-                
               </div>
-              {product.deleted && <div>
-                <p className='text-sm text-red-600'>product deleted</p>
+              
+              {product.stock<=0 && <div>
+                  <p className='text-sm text-red-600'>out of stock</p>
               </div>}
+              </div>
+
+            </Link> : null )
+          ) : (<Link to={`/admin/product-detail/${product.id}`} key={product.id}>
+          <div className=" group relative border-solid border-2 border-gray-200 p-2">
+            <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+            {product.stock<=0 && <div className='bg-yellow-300 relative w-half rounded-sm'>
+                  <p className='  text-red-500 ml-2  text-lg  font-bold '>out of stock</p>
+              </div>}
+              <img
+                src={product.thumbnail}
+                alt={product.title}
+                className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
             </div>
-            
-            </Link>
-            <div className='mt-5'>
-              <Link
-                  to={`/admin/product-form/edit/${product.id}`}
-                  type="submit"
-                  className="rounded-md bg-blue-600 px-3 my-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                  Edit Product
-              </Link>
-                </div>
+            <div className="mt-4 flex justify-between">
+              <div>
+                <h3 className="text-sm text-gray-700">
+                  <div href={product.thumbnail}>
+                    <span aria-hidden="true" className="absolute inset-0" />
+                    {product.title}
+                  </div>
+                </h3>
+                <p className="mt-1 text-sm text-gray-500">
+                <StarIcon className='h-6 w-6 inline'></StarIcon>
+                  <span className='align-bottom'>{product.rating}</span>
+                  </p>
+              </div>
+              <div>
+              <p className="text-sm block font-medium text-gray-900">${discountPrice(product)}</p>
+
+              <p className="text-sm block font-medium line-through text-gray-400">${product.price}</p>
+              </div>
             </div>
-          ))}
+            {product.deleted && <div>
+                <p className='text-sm text-red-600'>product deleted</p>
+            </div>}
+
+            </div>
+
+          </Link>))}
         </div>
       </div>
     </div>

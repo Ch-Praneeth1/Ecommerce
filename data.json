@@ -2511,6 +2511,15 @@
           "city": "nandhigama",
           "state": "AP ",
           "pincode": "87518"
+        },
+        {
+          "name": "pavan ",
+          "email": "chpraneethvardhanreddy143@gmail.com",
+          "phone": "9866537956",
+          "street": "ff",
+          "city": "vbnm",
+          "state": "cvbnm",
+          "pincode": "jkl"
         }
       ],
       "role": "user"
@@ -2689,7 +2698,7 @@
         ],
         "role": "user"
       },
-      "deliveryStatus": "shipping"
+      "deliveryStatus": "delivered"
     },
     {
       "id": "2529",
@@ -2758,6 +2767,69 @@
             "city": "Kakinda ",
             "state": "AP ",
             "pincode": "852963"
+          }
+        ],
+        "role": "user"
+      },
+      "deliveryStatus": "pending"
+    },
+    {
+      "id": "3d92",
+      "items": [
+        {
+          "id": "21",
+          "title": "- Daal Masoor 500 grams",
+          "description": "Fine quality Branded Product Keep in a cool and dry place",
+          "price": 20,
+          "discountPercentage": 4.81,
+          "rating": 4.44,
+          "stock": 133,
+          "brand": "Saaf & Khaas",
+          "category": "groceries",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/21/thumbnail.png",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/21/1.png",
+            "https://cdn.dummyjson.com/product-images/21/2.jpg",
+            "https://cdn.dummyjson.com/product-images/21/3.jpg"
+          ],
+          "quantity": 1,
+          "user": "2"
+        }
+      ],
+      "totalAmount": 19,
+      "totalItems": 1,
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Gadde204",
+        "email": "2100080199ai.ds@gmail.com",
+        "phone": "9989334372",
+        "street": "hanuman street",
+        "city": "nandhigama",
+        "state": "AP ",
+        "pincode": "87518"
+      },
+      "user": {
+        "id": "2",
+        "email": "2100080199ai.ds@gmail.com",
+        "password": "Gadde@123",
+        "addresses": [
+          {
+            "name": "Gadde204",
+            "email": "2100080199ai.ds@gmail.com",
+            "phone": "9989334372",
+            "street": "hanuman street",
+            "city": "nandhigama",
+            "state": "AP ",
+            "pincode": "87518"
+          },
+          {
+            "name": "pavan ",
+            "email": "chpraneethvardhanreddy143@gmail.com",
+            "phone": "9866537956",
+            "street": "ff",
+            "city": "vbnm",
+            "state": "cvbnm",
+            "pincode": "jkl"
           }
         ],
         "role": "user"
