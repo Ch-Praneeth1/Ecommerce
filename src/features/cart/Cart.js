@@ -84,7 +84,7 @@ export default function Cart() {
                       cancleOption="Cancel" 
                       dangerOption="Delete" 
                       modalAction={(e) => handleDeleteItem(e,item.id)}
-                      cancleAction={() => setOpenModal(-1)}
+                      cancleAction={() => setOpenModal(null)}
                       showModal={openModal === item.id}
                     ></Modal>
 

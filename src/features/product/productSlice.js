@@ -133,6 +133,7 @@ export const updateProductAsync = createAsyncThunk(
         state.status = 'idle';
         const index = state.products.findIndex(product=>product.id===action.payload.id)
         state.products[index] = action.payload;
+        state.selectedProduct = action.payload;
       });
   },
 });

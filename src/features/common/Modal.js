@@ -1,15 +1,17 @@
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { useAlert } from "react-alert";
 
 export default function Example({title, message, cancleOption, dangerOption, modalAction, showModal, cancleAction }) {
   const [open, setOpen] = useState(false);
-
+  const alert = useAlert()
   const cancelButtonRef = useRef(null)
 
   const handleDanger = () => {
     setOpen(false)
     modalAction()
+    alert.show("Deleted")
   }
 
   const handleCancle = () => {

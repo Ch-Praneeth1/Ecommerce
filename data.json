@@ -30,7 +30,7 @@
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
       "images": [
-        "https://cdn.dummyjson.com/product-images/2/3.jpg",
+        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
         "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
         "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
         "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
@@ -51,9 +51,10 @@
       "images": [
         "https://cdn.dummyjson.com/product-images/3/1.jpg",
         "https://cdn.dummyjson.com/product-images/3/1.jpg",
-        "https://cdn.dummyjson.com/product-images/3/1.jpg",
+        "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
         "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": "4",
@@ -89,7 +90,8 @@
         "https://cdn.dummyjson.com/product-images/5/1.jpg",
         "https://cdn.dummyjson.com/product-images/5/2.jpg",
         "https://cdn.dummyjson.com/product-images/5/3.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": "6",
@@ -107,7 +109,8 @@
         "https://cdn.dummyjson.com/product-images/6/2.jpg",
         "https://cdn.dummyjson.com/product-images/6/3.png",
         "https://cdn.dummyjson.com/product-images/6/4.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": "7",
@@ -144,7 +147,8 @@
         "https://cdn.dummyjson.com/product-images/8/3.jpg",
         "https://cdn.dummyjson.com/product-images/8/4.jpg",
         "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": "9",
