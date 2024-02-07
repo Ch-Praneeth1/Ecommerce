@@ -2476,6 +2476,7 @@
     {
       "id": "1",
       "email": "chpraneethvardhanreddy143@gmail.com",
+      "name": "Ch Praneeth Vardhan Reddy",
       "password": "Chaganti@143",
       "addresses": [
         {
@@ -2502,6 +2503,7 @@
     {
       "id": "2",
       "email": "2100080199ai.ds@gmail.com",
+      "name": "Gadde Krishna",
       "password": "Gadde@123",
       "addresses": [
         {
@@ -2528,30 +2530,15 @@
     {
       "id": "3",
       "email": "2100030659cse.h@gmail.com",
+      "name": "U V Phani Charan",
       "password": "Phani@123",
       "addresses": [],
       "role": "user"
     },
     {
-      "id": "95d1",
-      "email": "praneethvardhanreddy143@gmail.com",
-      "password": "Pvr@1234",
-      "addresses": [
-        {
-          "name": "Praneeth reddy ",
-          "email": "praneethvardhanreddy143@gmail.com",
-          "phone": "7981127533",
-          "street": "wertyui dfghjk fg jk,",
-          "city": "Vijayawada ",
-          "state": "AP ",
-          "pincode": "098766"
-        }
-      ],
-      "role": "user"
-    },
-    {
       "id": "f84a",
       "email": "pavan143@gmail.com",
+      "name": "M Pavan Shekar Reddy",
       "password": "Pavan@123",
       "addresses": [
         {
@@ -2587,34 +2574,21 @@
     {
       "id": "630c",
       "email": "admin@gmail.com",
+      "name": "Admin",
       "password": "Admin@143",
       "addresses": [],
       "role": "admin"
-    }
-  ],
-  "cart": [
+    },
     {
-      "id": "18",
-      "title": "Oil Free Moisturizer 100ml",
-      "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
-      "price": 40,
-      "discountPercentage": 13.1,
-      "rating": 4.56,
-      "stock": 88,
-      "brand": "Dermive",
-      "category": "skincare",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/18/1.jpg",
-        "https://cdn.dummyjson.com/product-images/18/2.jpg",
-        "https://cdn.dummyjson.com/product-images/18/3.jpg",
-        "https://cdn.dummyjson.com/product-images/18/4.jpg",
-        "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": "1"
+      "id": "b1e1",
+      "name": "Gowtham Sai Srinivas",
+      "email": "gowtham@gmail.com",
+      "password": "Gowtham@143",
+      "addresses": [],
+      "role": "user"
     }
   ],
+  "cart": [],
   "orders": [
     {
       "id": "f9b1",
@@ -2831,6 +2805,93 @@
             "city": "vbnm",
             "state": "cvbnm",
             "pincode": "jkl"
+          }
+        ],
+        "role": "user"
+      },
+      "deliveryStatus": "pending"
+    },
+    {
+      "id": "3736",
+      "items": [
+        {
+          "id": "18",
+          "title": "Oil Free Moisturizer 100ml",
+          "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+          "price": 40,
+          "discountPercentage": 13.1,
+          "rating": 4.56,
+          "stock": 88,
+          "brand": "Dermive",
+          "category": "skincare",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/18/1.jpg",
+            "https://cdn.dummyjson.com/product-images/18/2.jpg",
+            "https://cdn.dummyjson.com/product-images/18/3.jpg",
+            "https://cdn.dummyjson.com/product-images/18/4.jpg",
+            "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": "1"
+        },
+        {
+          "id": "1",
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 2000,
+          "discountPercentage": 12.96,
+          "rating": 4.44,
+          "stock": 9,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+          ],
+          "deleted": false,
+          "quantity": 1,
+          "user": "1"
+        }
+      ],
+      "totalAmount": 1776,
+      "totalItems": 2,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Ch praneeth ",
+        "email": "chpraneethvardhanreddy143@gmail.com",
+        "phone": "7981127533",
+        "street": "Pragathi nagar, Jai shree rama heigths",
+        "city": "Guntur",
+        "state": "AP",
+        "pincode": "522007"
+      },
+      "user": {
+        "id": "1",
+        "email": "chpraneethvardhanreddy143@gmail.com",
+        "name": "Ch Praneeth Vardhan Reddy",
+        "password": "Chaganti@143",
+        "addresses": [
+          {
+            "name": "Ch praneeth ",
+            "email": "chpraneethvardhanreddy143@gmail.com",
+            "phone": "7981127533",
+            "street": "Pragathi nagar, Jai shree rama heigths",
+            "city": "Guntur",
+            "state": "AP",
+            "pincode": "522007"
+          },
+          {
+            "name": "Anu Radha ",
+            "email": "praneethvardhanreddy143@gmail.com",
+            "phone": "9866537956",
+            "street": "brammam gari veedhi ",
+            "city": "Patha Mallai Pallam",
+            "state": "AP ",
+            "pincode": "522001"
           }
         ],
         "role": "user"
