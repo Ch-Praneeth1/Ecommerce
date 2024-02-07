@@ -99,6 +99,7 @@ const ProductForm = () => {
             dispatch(createProductAsync(product));
         }
         reset();
+        alert.success("Product Saved!!")
         
       })}>
       <div className="space-y-12 bg-white p-12">

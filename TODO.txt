@@ -5,5 +5,5 @@
 5. update order success page with image             DONE
 6. update error page with image                     DONE
 7. After adding product in admin page alert should be shown & should NAVIGATE BACK to products page
-8. After editing the product in admin page alert shold be shown & should NAVIGATE BACK to products 
+8. After editing the product in admin page alert shold be shown & should NAVIGATE BACK to products    DONE 
 9. Add a search bar
