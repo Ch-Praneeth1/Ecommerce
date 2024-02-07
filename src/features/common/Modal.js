@@ -11,7 +11,7 @@ export default function Example({title, message, cancleOption, dangerOption, mod
   const handleDanger = () => {
     setOpen(false)
     modalAction()
-    alert.show("Deleted")
+    alert.show(dangerOption+"ed")
   }
 
   const handleCancle = () => {

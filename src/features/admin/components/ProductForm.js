@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import {  useDispatch, useSelector } from 'react-redux'
 import { clearSelectProduct, createProductAsync, fetchProductByIdAsync, selectAllBrands, selectAllCategories, selectProductById, updateProductAsync } from '../../product/productSlice'
 import { useForm } from 'react-hook-form'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import Modal from '../../common/Modal';
+import { useAlert } from 'react-alert'
 const ProductForm = () => {
     const brands = useSelector(selectAllBrands)
     const categories = useSelector(selectAllCategories)
@@ -12,7 +13,8 @@ const ProductForm = () => {
     const {id} = useParams();
     const selectedProduct = useSelector(selectProductById)
     const [openModel, setOpenModel] = useState(null);
-
+    const [openRestoreModel, setOpenRestoreModel] = useState(null);
+    const alert = useAlert();
 
     useEffect(() => {
         if(id){
@@ -45,7 +47,29 @@ const ProductForm = () => {
         const product = {...selectedProduct};
         product.deleted = true;
         dispatch(updateProductAsync(product));
-        reset();
+    }
+
+    const handleAdd = () => {
+      const product = {...selectedProduct};
+      product.deleted= false;
+      dispatch(updateProductAsync(product));
+    }
+
+    const handleCancle = () => {
+      alert.show("Product Updation Cancled!!");
+      if(selectedProduct && id){
+        setValue('title',selectedProduct.title);
+        setValue('description',selectedProduct.description);
+        setValue('price',selectedProduct.price);
+        setValue('stock',selectedProduct.stock);
+        setValue('discountPercentage',selectedProduct.discountPercentage);
+        setValue('thumbnail',selectedProduct.thumbnail);
+        setValue('brand',selectedProduct.brand);
+        setValue('category',selectedProduct.category);
+        setValue('image1',selectedProduct.images[1]);
+        setValue('image2',selectedProduct.images[2]);
+        setValue('image3',selectedProduct.images[3]);
+    }
     }
 
 
@@ -81,8 +105,8 @@ const ProductForm = () => {
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Add Product</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
-          The newly added product will be displayed to the user and made available for purchase.          </p>
-            {selectedProduct.deleted && <h2 className='text-red-500'>This product is deleted</h2>}     {/* TODO: IF product is deleted it need to have a button to re-add it back */}
+          The newly added product will be displayed to the user and made available for purchase.</p>
+        
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-6">
               <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
@@ -368,7 +392,7 @@ const ProductForm = () => {
      
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+        <button type="button" className="text-sm font-semibold leading-6 text-gray-900" onClick={(e) => handleCancle() }>
           Cancel
         </button>
         <button
@@ -380,7 +404,12 @@ const ProductForm = () => {
         {selectedProduct && !selectedProduct.deleted &&  <button type="button"
         onClick={(e) =>{e.preventDefault(); setOpenModel(true)}}
         className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          Delete
+          Delete The Product
+        </button>}
+        {selectedProduct && selectedProduct.deleted &&  <button type="button"
+        onClick={(e) =>{e.preventDefault(); setOpenRestoreModel(true)}}
+        className="rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          Re-Store The Product
         </button>}
       </div>
     </form>
@@ -392,6 +421,15 @@ const ProductForm = () => {
             modalAction={ handleDelete }
             cancleAction={() => setOpenModel(null)}
             showModal={openModel}
+      ></Modal>
+      <Modal 
+            title={`Re-store the product `} 
+            message="Are you sure, you  want to re-store this Product ?" 
+            cancleOption="Cancel" 
+            dangerOption="Re-Store" 
+            modalAction={ handleAdd }
+            cancleAction={() => setOpenRestoreModel(null)}
+            showModal={openRestoreModel}
       ></Modal>
     </>
     

@@ -7,7 +7,7 @@
       "price": 2000,
       "discountPercentage": 12.96,
       "rating": 4.44,
-      "stock": 0,
+      "stock": 9,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
@@ -16,7 +16,8 @@
         "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
         "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
         "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
-      ]
+      ],
+      "deleted": false
     },
     {
       "id": "2",
@@ -35,7 +36,7 @@
         "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
         "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
       ],
-      "deleted": true
+      "deleted": false
     },
     {
       "id": "3",
@@ -53,8 +54,7 @@
         "https://cdn.dummyjson.com/product-images/3/1.jpg",
         "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
         "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg"
-      ],
-      "deleted": true
+      ]
     },
     {
       "id": "4",
@@ -90,8 +90,7 @@
         "https://cdn.dummyjson.com/product-images/5/1.jpg",
         "https://cdn.dummyjson.com/product-images/5/2.jpg",
         "https://cdn.dummyjson.com/product-images/5/3.jpg"
-      ],
-      "deleted": true
+      ]
     },
     {
       "id": "6",
@@ -109,8 +108,7 @@
         "https://cdn.dummyjson.com/product-images/6/2.jpg",
         "https://cdn.dummyjson.com/product-images/6/3.png",
         "https://cdn.dummyjson.com/product-images/6/4.jpg"
-      ],
-      "deleted": true
+      ]
     },
     {
       "id": "7",
@@ -147,8 +145,7 @@
         "https://cdn.dummyjson.com/product-images/8/3.jpg",
         "https://cdn.dummyjson.com/product-images/8/4.jpg",
         "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
-      ],
-      "deleted": true
+      ]
     },
     {
       "id": "9",
@@ -2596,26 +2593,6 @@
     }
   ],
   "cart": [
-    {
-      "id": "11",
-      "title": "perfume Oil",
-      "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
-      "price": 13,
-      "discountPercentage": 8.4,
-      "rating": 4.26,
-      "stock": 65,
-      "brand": "Impression of Acqua Di Gio",
-      "category": "fragrances",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/11/1.jpg",
-        "https://cdn.dummyjson.com/product-images/11/2.jpg",
-        "https://cdn.dummyjson.com/product-images/11/3.jpg",
-        "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": "1"
-    },
     {
       "id": "18",
       "title": "Oil Free Moisturizer 100ml",
