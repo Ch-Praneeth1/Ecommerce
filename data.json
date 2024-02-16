@@ -73,7 +73,8 @@
         "https://cdn.dummyjson.com/product-images/4/3.jpg",
         "https://cdn.dummyjson.com/product-images/4/4.jpg",
         "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": "5",
@@ -135,12 +136,11 @@
       "price": 1499,
       "discountPercentage": 10.23,
       "rating": 4.43,
-      "stock": 68,
+      "stock": 0,
       "brand": "Microsoft Surface",
       "category": "laptops",
       "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
       "images": [
-        "https://cdn.dummyjson.com/product-images/8/1.jpg",
         "https://cdn.dummyjson.com/product-images/8/2.jpg",
         "https://cdn.dummyjson.com/product-images/8/3.jpg",
         "https://cdn.dummyjson.com/product-images/8/4.jpg",
@@ -2584,7 +2584,17 @@
       "name": "Gowtham Sai Srinivas",
       "email": "gowtham@gmail.com",
       "password": "Gowtham@143",
-      "addresses": [],
+      "addresses": [
+        {
+          "name": "Gowtham Sai Srinivas",
+          "email": "gowtham@gmail.com",
+          "phone": "4565789032",
+          "street": "abcd ",
+          "city": "guntur",
+          "state": "ap",
+          "pincode": "852963"
+        }
+      ],
       "role": "user"
     }
   ],
@@ -2892,6 +2902,63 @@
             "city": "Patha Mallai Pallam",
             "state": "AP ",
             "pincode": "522001"
+          }
+        ],
+        "role": "user"
+      },
+      "deliveryStatus": "pending"
+    },
+    {
+      "id": "169f",
+      "items": [
+        {
+          "id": "4",
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 280,
+          "discountPercentage": 17.91,
+          "rating": 4.3,
+          "stock": 123,
+          "brand": "OPPO",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/4/1.jpg",
+            "https://cdn.dummyjson.com/product-images/4/2.jpg",
+            "https://cdn.dummyjson.com/product-images/4/3.jpg",
+            "https://cdn.dummyjson.com/product-images/4/4.jpg",
+            "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": "b1e1"
+        }
+      ],
+      "totalAmount": 230,
+      "totalItems": 1,
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Gowtham Sai Srinivas",
+        "email": "gowtham@gmail.com",
+        "phone": "4565789032",
+        "street": "abcd ",
+        "city": "guntur",
+        "state": "ap",
+        "pincode": "852963"
+      },
+      "user": {
+        "id": "b1e1",
+        "name": "Gowtham Sai Srinivas",
+        "email": "gowtham@gmail.com",
+        "password": "Gowtham@143",
+        "addresses": [
+          {
+            "name": "Gowtham Sai Srinivas",
+            "email": "gowtham@gmail.com",
+            "phone": "4565789032",
+            "street": "abcd ",
+            "city": "guntur",
+            "state": "ap",
+            "pincode": "852963"
           }
         ],
         "role": "user"
