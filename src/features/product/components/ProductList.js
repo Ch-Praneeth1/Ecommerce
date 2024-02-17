@@ -72,8 +72,8 @@ export default function ProductList() {
     // console.log(section.id,option.value)
   }
   const handleSort =(e,option) =>{
-    const sort = { _sort:option.sort};          //const sort = { _sort:option.sort, _order:option.order};  
-                                                                    //TODO: _order is not working in json-server should handle this at backend level
+    const sort = { _sort:option.sort, _order:option.order};           //const sort = { _sort:option.sort}; 
+                                                                    //DONE: _order is not working in json-server should handle this at backend level
     setSort(sort);
   }
   useEffect(()=>{

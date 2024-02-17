@@ -9,7 +9,8 @@ export function fetchAllProducts() {
 
 
 export function fetchProductsByFilters(filter,sort) {
-    //filter = {"cateogry":"smartphone"}
+    // filter = {"category":["smartphone","laptops"]}
+    // sort = {_sort:"price",_order="desc"}
     //TODO: support multiple values to filter at a time
     //TODO: Server will filter the deleted products in case on non-admins
   let queryString = '';
