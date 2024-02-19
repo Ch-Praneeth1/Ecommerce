@@ -49,7 +49,7 @@ const CheckOutPage = () => {
 
     const handleOrder = (e) => {
       if(paymentMethod && selectedAddress){
-        const order = {items,totalAmount,totalItems,paymentMethod, selectedAddress, user, deliveryStatus  }
+        const order = {items,totalAmount,totalItems,paymentMethod, selectedAddress, user:user.id, deliveryStatus  }
         dispatch(createOrderAsync(order));
         
         // need to redircet into order-success page   --> DONE 

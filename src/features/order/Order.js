@@ -5,6 +5,7 @@ import { Link, Navigate } from "react-router-dom";
 import { selectUserInfo } from "../user/userSlice";
 import ShimmerOrder from "../shimmer/ShimmerOrder";
 import emptyOrder from '../../images/emptyOrders.png';
+import { discountPrice } from "../../app/constants";
 
 
 export default function Order() {
@@ -28,7 +29,7 @@ export default function Order() {
         <div className=" px-4 py-6 sm:px-6">
           <div className="flow-root ">
             <ul role="list" className="-my-6 ">
-              {orders.map((order,index) => (
+              {orders && orders.map((order,index) => (
                 <>
                 {order.items.map((item,innerIndex) => (
                   
@@ -36,8 +37,8 @@ export default function Order() {
               <li key={innerIndex} className="flex py-6 divide-y divide-green-400">
               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md ">
                 <img
-                  src={item.thumbnail}
-                  alt={item.title}
+                  src={item.product.thumbnail}
+                  alt={item.product.title}
                   className="h-full w-full object-cover object-center"
                 />
               </div>
@@ -46,17 +47,18 @@ export default function Order() {
                 <div>
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <h3>
-                      <a href={item.thumbnail}>{item.title}</a>
+                      <a href={item.product.id}>{item.product.title}</a>
                     </h3>
                     <div className="block">
+                      <p className="ml-4">${discountPrice(item.product)}</p>
                     <p className="ml-4">No of items-{item.quantity}</p>
                     <p className="ml-4 align-bottom text-red-600">{order.deliveryStatus}</p>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm text-gray-500">{item.brand}</p>
+                  <p className="mt-1 text-sm text-gray-500">{item.product.brand}</p>
                 </div>
                 <div className="flex flex-1 items-end justify-between text-sm">
-                <p className="mt-1 text-sm text-gray-500">{item.description}</p>
+                <p className="mt-1 text-sm text-gray-500">{item.product.description}</p>
                 </div>
               </div>
             </li>
@@ -64,7 +66,7 @@ export default function Order() {
                 ))}
 
               <div className=' px-4 py-6 sm:px-6'>
-                  <p className='mt-0.5 text-sm text-gray-500'>Delivery Address :</p>
+                  <p className='mt-0.5 text-sm text-gray-500'>Shipping Address :</p>
                 <li key={index} className="flex justify-between gap-x-6 py-5 px-5  ">
                   <div className="flex min-w-0 gap-x-4 ">
                   

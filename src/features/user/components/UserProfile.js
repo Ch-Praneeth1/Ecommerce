@@ -219,7 +219,7 @@ const UserProfile = () => {
                 
                 </form> : null}
           <p className='mt-4 text-sm text-gray-500'>Your Addresses :</p>
-          {user.address && user.addresses.map((address,index) => (
+          {user.addresses && user.addresses.map((address,index) => (
             <div>
               { selectedEditIndex === index ? <form className='bg-white px-4 pb-5 ' noValidate onSubmit={handleSubmit((data)=>{
                   // console.log(data)
