@@ -21,7 +21,7 @@ const CheckOutPage = () => {
     const [open, setOpen] = useState(true);
     const dispatch = useDispatch();
     const items = useSelector(selectAllCartItems)
-    const totalAmount = items.reduce((amount,item)=> discountPrice(item)*item.quantity +amount,0)
+    const totalAmount = items.reduce((amount,item)=> discountPrice(item.product)*item.quantity +amount,0)
     const totalItems = items.reduce((total,item)=> item.quantity+ total,0)
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const user = useSelector(selectUserInfo)
@@ -31,7 +31,7 @@ const CheckOutPage = () => {
     const deliveryStatus = "pending"
     
     const handleQuantity = (e,item) => {
-      dispatch(updateCartAsync({...item,quantity: +e.target.value}))
+      dispatch(updateCartAsync({id:item.id,quantity: +e.target.value}))
     };
   
     const handleDeleteItem = (e,itemId) => {
@@ -75,7 +75,15 @@ const CheckOutPage = () => {
             <div className='lg:col-span-3 pt-12'>
                 <form className='bg-white px-4 pb-5 ' noValidate onSubmit={handleSubmit((data)=>{
                   // console.log(data)
-                  dispatch(updateUserAsync({...user,addresses:[...user.addresses,data]}))
+                  // dispatch(updateUserAsync({...user,addresses:[...user.addresses,data]}))
+                  if (user.addresses && typeof user.addresses[Symbol.iterator] === 'function') {
+                    // Spread user.addresses if it's iterable
+                    dispatch(updateUserAsync({...user, addresses: [...user.addresses, data]}));
+                  } else {
+                    // Handle the case where user.addresses is not iterable
+                    // For example, if it's not an array, you might want to initialize addresses as an array with the new data
+                    dispatch(updateUserAsync({...user, addresses: [data]}));
+                  }
                   reset();
                 })}>
                 <div className="space-y-12">
@@ -226,7 +234,7 @@ const CheckOutPage = () => {
                         Choose form the existing address.
                     </p>
                     <ul role="list" className="divide-y divide-gray-100">
-      {user.addresses.map((address,index) => (
+      {user.addresses  && user.addresses.map((address,index) => (
         <li key={index} className="flex justify-between gap-x-6 py-5 px-5 border-solid border-2 border-gray-2 ">
           <div className="flex min-w-0 gap-x-4 ">
           <input
@@ -316,11 +324,12 @@ const CheckOutPage = () => {
           <div className="flow-root">
             <ul role="list" className="-my-6 divide-y divide-gray-200">
               {items.map((item) => (
+                
               <li key={item.id} className="flex py-6">
               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                 <img
-                  src={item.thumbnail}
-                  alt={item.title}
+                  src={item.product.thumbnail}
+                  alt={item.product.title}
                   className="h-full w-full object-cover object-center"
                 />
               </div>
@@ -329,11 +338,11 @@ const CheckOutPage = () => {
                 <div>
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <h3>
-                      <a href={item.thubnail}>{item.title}</a>
+                      <a href={item.product.id}>{item.product.title}</a>
                     </h3>
-                    <p className="ml-4">${discountPrice(item)}</p>
+                    <p className="ml-4">${discountPrice(item.product)}</p>
                   </div>
-                  <p className="mt-1 text-sm text-gray-500">{item.brand}</p>
+                  <p className="mt-1 text-sm text-gray-500">{item.product.brand}</p>
                 </div>
                 <div className="flex flex-1 items-end justify-between text-sm">
                   <div className="text-gray-500 ">

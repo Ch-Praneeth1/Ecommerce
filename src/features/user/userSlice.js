@@ -21,8 +21,10 @@ export const fetchLoggedInUserAsync = createAsyncThunk(
 export const updateUserAsync = createAsyncThunk(
   'user/updateUser',
   async (update) => {
+    console.log(update)
     const response = await updateUser(update);
     // The value we return becomes the `fulfilled` action payload
+    console.log(response.data)
     return response.data;
   }
 );

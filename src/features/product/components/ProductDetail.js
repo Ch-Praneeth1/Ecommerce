@@ -52,18 +52,19 @@ export default function ProductDetail() {
 
   const handleAddCart = (e) =>{
       e.preventDefault();
-      if(items.findIndex(item => item.id===product.id)>=0){    // If item is already in the cart dont add it
+
+      if(items.findIndex(item => item.product.id===product.id)>=0){    // If item is already in the cart dont add it
         alert.error("Item already in cart!");
                 //DONE: need to add a proper aleart 
       }else{
-        dispatch(addToCartAsync({...product,quantity:1,user:user.id}))
+        dispatch(addToCartAsync({product:product.id,quantity:1,user:user.id}))
                 //TODO: it should wait until the server responds to the request form the backend 
         alert.success("Item added to cart!");
       }
   };
 
   const handleOutOfStock = (e) => {
-    alert.error('Product Out of stcok!!')
+    alert.error('Product Out of stock!!')
   }
 
   useEffect(()=>{
