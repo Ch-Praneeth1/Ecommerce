@@ -19,10 +19,15 @@ export const createUserAsync = createAsyncThunk(
 
 export const checkUserAsync = createAsyncThunk(
   'auth/checkUser',
-  async (loginInfo) => {
-    const response = await checkUser(loginInfo);
+  async (loginInfo, {rejectWithValue}) => {
+    
+    try{
+      const response = await checkUser(loginInfo);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
+    } catch (error) {
+      return rejectWithValue(error)
+    }
   }
 );
 
@@ -67,12 +72,12 @@ export const authSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(checkUserAsync.fulfilled, (state, action) => {
-        state.status = 'userFound';
+        state.status = 'idle';
         state.loggedInUser = action.payload;
       })
       .addCase(checkUserAsync.rejected, (state, action) => {
-        state.status = 'error';
-        state.error = action.error;
+        state.status = 'idle';
+        state.error = action.payload;
       })
       .addCase(updateUserAsync.pending, (state) => {
         state.status = 'loading';

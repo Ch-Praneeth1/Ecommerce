@@ -2964,6 +2964,72 @@
         "role": "user"
       },
       "deliveryStatus": "pending"
+    },
+    {
+      "id": "1e84",
+      "items": [
+        {
+          "id": "1",
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 2000,
+          "discountPercentage": 12.96,
+          "rating": 4.44,
+          "stock": 9,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+          ],
+          "deleted": false,
+          "quantity": 1,
+          "user": "1"
+        }
+      ],
+      "totalAmount": 1741,
+      "totalItems": 1,
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Ch praneeth ",
+        "email": "chpraneethvardhanreddy143@gmail.com",
+        "phone": "7981127533",
+        "street": "Pragathi nagar, Jai shree rama heigths",
+        "city": "Guntur",
+        "state": "AP",
+        "pincode": "522007"
+      },
+      "user": {
+        "id": "1",
+        "email": "chpraneethvardhanreddy143@gmail.com",
+        "name": "Ch Praneeth Vardhan Reddy",
+        "password": "Chaganti@143",
+        "addresses": [
+          {
+            "name": "Ch praneeth ",
+            "email": "chpraneethvardhanreddy143@gmail.com",
+            "phone": "7981127533",
+            "street": "Pragathi nagar, Jai shree rama heigths",
+            "city": "Guntur",
+            "state": "AP",
+            "pincode": "522007"
+          },
+          {
+            "name": "Anu Radha ",
+            "email": "praneethvardhanreddy143@gmail.com",
+            "phone": "9866537956",
+            "street": "brammam gari veedhi ",
+            "city": "Patha Mallai Pallam",
+            "state": "AP ",
+            "pincode": "522001"
+          }
+        ],
+        "role": "user"
+      },
+      "deliveryStatus": "pending"
     }
   ]
 }

@@ -22,7 +22,7 @@ const navigation = [
 
 ]
 const userNavigation = [
-  { name: 'My Profile', link: '/user-profile',user:true,admin:true },    //TODO: should remove the cart, checkout page, my orders for admin 
+  { name: 'My Profile', link: '/user-profile',user:true,admin:true },    //DONE: should remove the cart, checkout page, my orders for admin 
   { name: 'My Orders', link: '/order-details',user:true },      //my orders is not required for admin
   { name: 'Sign Out', link: '/logout',user:true,admin:true },
 ]
