@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { selectCartItemsLength } from '../cart/cartSlice'
 import { selectLoggedInUser } from '../auth/authSlice'
 import {  UserCircleIcon } from '@heroicons/react/24/solid'
+import { selectUserInfo } from '../user/userSlice'
 // const user = {
 //   name: 'Tom Cook',
 //   email: 'tom@example.com',
@@ -34,10 +35,10 @@ function classNames(...classes) {
 
 export const Navbar = ({children}) => {
   const noOfItemsInCart = useSelector(selectCartItemsLength);
-  const user = useSelector(selectLoggedInUser);
+  const userInfo = useSelector(selectUserInfo);
   return (
     <>
-      <div className="min-h-full ">
+      {userInfo && <div className="min-h-full ">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
             <>
@@ -55,7 +56,7 @@ export const Navbar = ({children}) => {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => item[user.role] ? (
+                        {navigation.map((item) => item[userInfo.role] ? (
                           <Link
                             key={item.name}
                             to={item.link}
@@ -80,7 +81,7 @@ export const Navbar = ({children}) => {
                     <div className="ml-4 flex items-center md:ml-6">
 
                       {/** cart icon  */}
-                    {user.role==="user" &&
+                    {userInfo.role==="user" &&
                     <>
                     <Link to="/cart">
                       <button
@@ -118,7 +119,7 @@ export const Navbar = ({children}) => {
                           leaveTo="transform opacity-0 scale-95"
                         >
                           <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            {userNavigation.map((item) => item[user.role] ?(
+                            {userNavigation.map((item) => item[userInfo.role] ?(
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
                                   <Link to={item.link}
@@ -154,7 +155,7 @@ export const Navbar = ({children}) => {
 
               <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                  {navigation.map((item) => item[user.role] ? (
+                  {navigation.map((item) => item[userInfo.role] ? (
                     <Disclosure.Button
                       key={item.name}
                       as="a"
@@ -175,11 +176,11 @@ export const Navbar = ({children}) => {
                     <UserCircleIcon className="h-6 w-6 text-white-300" aria-hidden="true" />
                     </div>
                     <div className="ml-3">
-                      <div className="text-base font-medium leading-none text-white">{user.name}</div>
-                      <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
+                      <div className="text-base font-medium leading-none text-white">{userInfo.name}</div>
+                      <div className="text-sm font-medium leading-none text-gray-400">{userInfo.email}</div>
                     </div>
                     
-                    {user.role === "user" && 
+                    {userInfo.role === "user" && 
                     <>
                     <Link to="/cart">
                     <button
@@ -196,7 +197,7 @@ export const Navbar = ({children}) => {
                     </>}
                   </div>
                   <div className="mt-3 space-y-1 px-2">
-                    {userNavigation.map((item) => item[user.role]? (
+                    {userNavigation.map((item) => item[userInfo.role]? (
                       <Disclosure.Button
                         key={item.name}
                         as="a"
@@ -224,7 +225,7 @@ export const Navbar = ({children}) => {
             }
           </div>
         </main>
-      </div>
+      </div>}
     </>
   )
 }

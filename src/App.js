@@ -97,7 +97,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/product-detail/:id",
+    path: "/user/product-detail/:id",
     element:(
       <Protected>
         <ProductDetailPage></ProductDetailPage>
@@ -177,8 +177,8 @@ function App() {
   const user = useSelector(selectLoggedInUser)
   useEffect(()=>{
     if(user){
-      dispatch(fetchItemsByUserIdAsync(user.id))
-      dispatch(fetchLoggedInUserAsync(user.id))
+      dispatch(fetchItemsByUserIdAsync())// we can get req.user by token on backend so no need of passing id's
+      dispatch(fetchLoggedInUserAsync())
     }
   },[dispatch,user])
   

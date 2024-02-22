@@ -18,6 +18,7 @@ import { Link } from 'react-router-dom';
 import { discountPrice } from '../../../app/constants';
 import { selectLoggedInUser } from '../../auth/authSlice';
 import { ShimmerHome } from '../../shimmer/ShimmerHome';
+import { selectUserInfo } from '../../user/userSlice';
 
 const sortOptions = [
   { name: 'Best Rating', sort:"rating", order:"desc", current: false },
@@ -36,7 +37,7 @@ export default function ProductList() {
   const categories = useSelector(selectAllCategories)
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-  const user = useSelector(selectLoggedInUser);
+  const userInfo = useSelector(selectUserInfo);
   const [status, setStatus] = useState(false)
   const filters = [
     {
@@ -168,7 +169,7 @@ export default function ProductList() {
 
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <ProductGrid products={products} user={user}></ProductGrid>
+                <ProductGrid products={products} user={userInfo}></ProductGrid>
               </div>
             </div>
           </section>
@@ -413,7 +414,7 @@ const ProductGrid = ({products,user}) => {
       {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Products</h2> */}
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
           {products.map((product) => user.role==="user" ? (
-            (!product.deleted ? <Link to={`/product-detail/${product.id}`} key={product.id}>
+            (!product.deleted ? <Link to={`/user/product-detail/${product.id}`} key={product.id}>
             <div className=" group relative border-solid border-2 border-gray-200 p-2">
               <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
               {product.stock<=0 && <div className='bg-yellow-300 relative w-half rounded-sm'>

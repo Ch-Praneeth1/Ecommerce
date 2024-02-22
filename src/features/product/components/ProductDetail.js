@@ -45,7 +45,7 @@ export default function ProductDetail() {
   const dispatch = useDispatch();
   const {id} = useParams()
   const product = useSelector(selectProductById)
-  const user = useSelector(selectUserInfo)
+  // const userinfo = useSelector(selectUserInfo)
   const items = useSelector(selectAllCartItems)
   const alert = useAlert()
   const status = useSelector(selectProductListFetchingStatus);
@@ -57,7 +57,8 @@ export default function ProductDetail() {
         alert.error("Item already in cart!");
                 //DONE: need to add a proper aleart 
       }else{
-        dispatch(addToCartAsync({product:product.id,quantity:1,user:user.id}))
+        console.log(product)
+        dispatch(addToCartAsync({product:product.id,quantity:1}))
                 //TODO: it should wait until the server responds to the request form the backend 
         alert.success("Item added to cart!");
       }

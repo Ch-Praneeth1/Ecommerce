@@ -60,7 +60,7 @@ const CheckOutPage = () => {
       }
       // redirect to order-success page --> DONE 
 
-      dispatch(clearCartAsync(user.id))
+      dispatch(clearCartAsync())
       //TODO: clear cart after order
       //TODO: on server change the stock number of items
     }

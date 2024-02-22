@@ -10,9 +10,9 @@ export function createOrder(order) {
   }); 
 }
 
-export function fetchAllOrderByUserId(userId){
+export function fetchAllOrderByUserId(){
   return new Promise(async(resolve) => {
-    const response = await fetch('http://localhost:8080/orders?user='+userId);
+    const response = await fetch('http://localhost:8080/orders/mine');
     const data = await response.json();
     resolve({data})
   });
