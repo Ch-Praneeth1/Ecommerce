@@ -61,15 +61,18 @@ const CheckOutPage = () => {
       // redirect to order-success page --> DONE 
 
       dispatch(clearCartAsync())
-      //TODO: clear cart after order
-      //TODO: on server change the stock number of items
+      // clear cart after order --> DONE
+      // on server change the stock number of items --> DONE
     }
     
   return (
     // <div className=''>
 
     <>
-    {items.length===0 && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
+    {items.length===0 && currentOrder.paymentMethod === "cash" &&  <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
+    {items.length===0 && currentOrder.paymentMethod === "card" &&  <Navigate to={`/stripe-checkout`} replace={true}></Navigate>}
+
+
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
             <div className='lg:col-span-3 pt-12'>

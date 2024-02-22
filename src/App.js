@@ -14,7 +14,7 @@ import CheckOutPage from './pages/CheckOutPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import Protected from './features/auth/components/Protected';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectLoggedInUser } from './features/auth/authSlice';
+import { checkAuthAsync, selectLoggedInUser, selectUserChecked } from './features/auth/authSlice';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import PageNotFoundPage from './pages/PageNotFoundPage';
 import OrderSuccesspage from './pages/OrderSuccesspage';
@@ -31,6 +31,7 @@ import { AdminOrdersPage } from './pages/AdminOrdersPage';
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import ShimmerOrder from './features/shimmer/ShimmerOrder';
+import StripeCheckout from './pages/StripeCheckout';
 
 
 const options = {
@@ -157,6 +158,14 @@ const router = createBrowserRouter([
     )
   },
   {
+    path: "/stripe-checkout",
+    element:(
+      <Protected>
+        <StripeCheckout></StripeCheckout>
+      </Protected>
+    )
+  },
+  {
     path: "/shimmer",
     element:(
       <ShimmerOrder></ShimmerOrder>        //TODO: cleanup
@@ -175,6 +184,10 @@ const router = createBrowserRouter([
 function App() {
   const dispatch = useDispatch()
   const user = useSelector(selectLoggedInUser)
+  const userChecked = useSelector(selectUserChecked)
+  useEffect(() => {
+    dispatch(checkAuthAsync())
+  },[dispatch]);
   useEffect(()=>{
     if(user){
       dispatch(fetchItemsByUserIdAsync())// we can get req.user by token on backend so no need of passing id's
@@ -190,9 +203,9 @@ function App() {
 
   return (
     <div className="App">
-        <Provider template={AlertTemplate} {...options}>
+        {userChecked && <Provider template={AlertTemplate} {...options}>
               <RouterProvider router={router} />
-        </Provider>
+        </Provider>}
     </div>
   );
 } 
