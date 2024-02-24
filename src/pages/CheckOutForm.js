@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-    const currentOrder = useSelector(selectCurrentPlacedOrder)
+  const currentOrder = useSelector(selectCurrentPlacedOrder)
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -41,8 +41,8 @@ export default function CheckoutForm() {
           setMessage("Your payment was not successful, please try again.");
           break;
         default:
-            // console.log(paymentIntent.status)
           setMessage("Something went wrong.");
+          
           break;
       }
     });
@@ -63,7 +63,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `https://localhost:3000//order-success/${currentOrder.id}`,
+        return_url: `http://localhost:3000/order-success/${currentOrder.id}`,
       },
     });
 
@@ -75,6 +75,7 @@ export default function CheckoutForm() {
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
     } else {
+      console.log(error.message)
       setMessage("An unexpected error occurred.");
     }
 
@@ -87,7 +88,6 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">

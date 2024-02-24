@@ -70,7 +70,7 @@ const CheckOutPage = () => {
 
     <>
     {items.length===0 && currentOrder.paymentMethod === "cash" &&  <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
-    {items.length===0 && currentOrder.paymentMethod === "card" &&  <Navigate to={`/stripe-checkout`} replace={true}></Navigate>}
+    {items.length===0 && currentOrder.paymentMethod === "card" &&  <Navigate to={`/stripe-checkout/`} replace={true}></Navigate>}
 
 
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
