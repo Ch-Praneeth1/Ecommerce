@@ -1,6 +1,6 @@
 export function createOrder(order) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/orders',{
+    const response = await fetch('/orders',{
       method: "POST",
       body: JSON.stringify(order),
       headers:{'content-type':'application/json'}
@@ -12,7 +12,7 @@ export function createOrder(order) {
 
 export function fetchAllOrderByUserId(){
   return new Promise(async(resolve) => {
-    const response = await fetch('http://localhost:8080/orders/mine');
+    const response = await fetch('/orders/mine');
     const data = await response.json();
     resolve({data})
   });
@@ -20,7 +20,7 @@ export function fetchAllOrderByUserId(){
 
 export function fetchAllOrders(){
   return new Promise(async(resolve) => {
-    const response = await fetch('http://localhost:8080/orders/admin');
+    const response = await fetch('/orders/admin');
     const data = await response.json();
     resolve({data})
   });
