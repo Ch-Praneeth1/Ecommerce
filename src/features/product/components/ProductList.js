@@ -16,7 +16,6 @@ import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, StarI
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
 import { discountPrice } from '../../../app/constants';
-import { selectLoggedInUser } from '../../auth/authSlice';
 import { ShimmerHome } from '../../shimmer/ShimmerHome';
 import { selectUserInfo } from '../../user/userSlice';
 

@@ -23,8 +23,14 @@ const AdminOrders = () =>{
       console.log("handle show")
     };
 
-    const handleUpdate = (e,order) => {
+    const handelOrderStatus = (e,order) => {
       const updatedOrder = {...order, deliveryStatus:e.target.value}
+      dispatch(updateOrderAsync(updatedOrder))
+      setEditableOrderId(-1)
+    };
+
+    const handelOrderPaymentStatus = (e,order) => {
+      const updatedOrder = {...order, paymentStatus:e.target.value}
       dispatch(updateOrderAsync(updatedOrder))
       setEditableOrderId(-1)
     };
@@ -46,20 +52,33 @@ const AdminOrders = () =>{
       }
     };
 
+    const paymentColor = (paymentStatus) => {
+      switch(paymentStatus){
+        case 'pending':
+          return 'bg-red-300 text-red-600';
+        case 'received':
+          return 'bg-green-300 text-green-600';
+        default:
+          return 'bg-red-300 text-red-600';
+      }
+    }
+
     return(
       <div className="overflow-x-auto hide-scrollbar">
       <div className="bg-gray-100 flex items-center justify-center font-sans overflow-hidden">
         <div className="w-full">
           <div className="bg-white shadow-md rounded my-6">
             <div className="overflow-x-auto">
-              <table className="min-w-full table-auto">
+              <table className=" table-auto">
                 <thead>
                   <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                     <th className="py-3 px-6 text-left">#Order Id</th>
                     <th className="py-3 px-6 text-left">Items</th>
                     <th className="py-3 px-6 text-left">Total Amount</th>
+                    <th className="py-3 px-6 text-left">Payment Method</th>
+                    <th className="py-3 px-6 text-left">Payment Status</th>
                     <th className="py-3 px-6 text-center">Shipping Address</th>
-                    <th className="py-3 px-6 text-center">Status</th>
+                    <th className="py-3 px-6 text-center">Order Status</th>
                     <th className="py-3 px-6 text-center">Actions</th>
                   </tr>
                 </thead>
@@ -90,6 +109,27 @@ const AdminOrders = () =>{
                   {/* totle amount */} 
                   <span>${order.totalAmount}</span>
                 </div>
+              </td><td className="py-3 px-6 text-center">
+                <div className="flex items-center justify-center">
+                  {/* payment method */} 
+                  <span>{order.paymentMethod}</span>
+                </div>
+              </td>
+              <td className="py-3 px-6 text-center">
+                
+              {order.id === editableOrderId ? 
+
+                 <select onChange={e=> handelOrderPaymentStatus(e,order)}>
+                <option value="pending">Pending</option>
+                  <option value="received">Received</option>
+                  
+                </select> :
+
+                <span className={`${paymentColor(order.paymentStatus)} py-1 px-3 rounded-full text-xs`}>
+                  
+                {order.paymentStatus}
+              </span>
+              }
               </td>
               <td className="py-3 px-6 text-center">
                 <div className="">
@@ -105,7 +145,7 @@ const AdminOrders = () =>{
                 
               {order.id === editableOrderId ? 
 
-                 <select onChange={e=> handleUpdate(e,order)}>
+                 <select onChange={e=> handelOrderStatus(e,order)}>
                 <option value="pending">Pending</option>
                   <option value="shipping">In shipping</option>
                   <option value="dispatched">Dispatched</option>
